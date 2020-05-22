@@ -1,0 +1,24 @@
+is_builtin :
+rajouter comme condition que strlen = x
+si exit, free cmd et env
+
+A IMPLEMENTER :
+OK	Prompt
+	Lancer un executable
+		en passant pas la variable d'env PATH
+		en passant un path absolu
+	Builtins :
+		echo (-n)
+OK		cd
+OK		pwd
+		export
+		unset
+		env
+OK		exit
+	Prendre plusieurs commandes avec ;
+	Différencier ' / "
+	Redirections < > >>
+	Pipes |
+	Gérer les variables d'env $VARIABLE
+	$?
+	Interruptions ctrl+C ctrl+D ctrl+\
