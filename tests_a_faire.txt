@@ -1,0 +1,28 @@
+GESTION DES QUOTES
+
+➜  ~ echo "Hello" "Goodbye"
+Hello Goodbye
+➜  ~ echo "Hello" "Goodbye 
+dquote> "
+Hello Goodbye
+
+➜  ~ echo "Hello "Goodbye" 
+"
+Hello Goodbye
+
+➜  ~ echo "Hello "Goodbye" 
+dquote> "
+Hello Goodbye
+
+➜  ~ echo "Hello ."Goodbye"
+"
+Hello .Goodbye
+
+➜  ~ echo "Hello ."Goodbye" 
+dquote> "
+Hello .Goodbye
+
+➜  ~ echo "Hello ."Goodbye
+Hello .Goodbye
+➜  ~ echo "Hello ." Goodbye
+Hello . Goodbye

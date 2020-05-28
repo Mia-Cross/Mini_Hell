@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/05/27 17:40:25 by schene           ###   ########.fr       */
+/*   Updated: 2020/05/28 17:42:21 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ static void		ctr_c(int num)
 	(void)num;
 	ft_putstr("\nminishell>> ");
 }
+
+// static void		ctr_antislash(int num)
+// {
+// 	(void)num;
+// 	builtin_exit(data);
+// }
 
 static t_data	*init_data(char **main_env)
 {
@@ -63,6 +69,7 @@ int				main(int ac, char **av, char **env)
 	(void)av;
 	ft_putstr("minishell>> ");
 	signal(SIGINT, &ctr_c);
+	// signal(SIGQUIT, &ctr_antislash);
 	data = init_data(env);
 	while (get_next_line(0, &line) > 0)
 		exec_shell(data, line);
