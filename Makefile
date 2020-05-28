@@ -7,7 +7,14 @@ OBJDIR = .obj
 SRCS =	builtin.c \
 		echo.c \
 		env.c \
-		minishell.c
+		env_export.c \
+		minishell.c \
+		minishell_utils.c \
+		builtin_cd.c \
+		split_cmd.c \
+		split_spaces.c \
+		remove_single_quote.c \
+		exec_cmd.c
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
@@ -32,12 +39,12 @@ all :
 
 $(NAME) : $(OBJS) $(LIB)
 	@printf "[$(NAME)] "
-	gcc $(CFLAGS) -o $(NAME) ${OBJS} $(LIB)
+	clang $(CFLAGS) -o $(NAME) ${OBJS} $(LIB)
 	@echo Compiled $(NAME) successfully !
 	@echo $(NAME) > .gitignore
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(OBJDIR)
-	gcc $(CFLAGS) -MMD -c $< -o $@
+	clang $(CFLAGS) -c $< -o $@
 
 $(OBJDIR) :
 	@mkdir -p .obj 

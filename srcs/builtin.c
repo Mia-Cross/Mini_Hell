@@ -6,53 +6,58 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:21:34 by schene            #+#    #+#             */
-/*   Updated: 2020/05/07 02:36:30 by schene           ###   ########.fr       */
+/*   Updated: 2020/05/27 15:40:34 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-int is_builtin(char *cmd)
+int		is_builtin(char *cmd)
 {
-	if (ft_strncmp(cmd, "cd", 3) == 0)
+	int	len;
+
+	len = ft_strlen(cmd);
+	len = len < 3 ? 3 : len;
+	if (ft_strncmp(cmd, "cd", len) == 0)
 		return (1);
-	else if (ft_strncmp(cmd, "pwd", 3) == 0)
+	len = len < 4 ? 4 : len;
+	if (ft_strncmp(cmd, "pwd", len) == 0)
 		return (1);
-	else if (ft_strncmp(cmd, "env", 3) == 0)
+	else if (ft_strncmp(cmd, "env", len) == 0)
 		return (1);
-	else if (ft_strncmp(cmd, "export", 6) == 0)
+	len = len < 5 ? 5 : len;
+	if (ft_strncmp(cmd, "exit", len) == 0)
 		return (1);
-	else if (ft_strncmp(cmd, "unset", 5) == 0)
+	else if (ft_strncmp(cmd, "echo", len) == 0)
 		return (1);
-	else if (ft_strncmp(cmd, "exit", 4) == 0)
+	len = len < 6 ? 6 : len;
+	if (ft_strncmp(cmd, "unset", len) == 0)
 		return (1);
-	else if (ft_strncmp(cmd, "echo", 4) == 0)
+	len = len < 7 ? 7 : len;
+	if (ft_strncmp(cmd, "export", len) == 0)
 		return (1);
 	return (0);
 }
 
-void	exec_builtin(char **cmd, t_list *env)
+void	exec_builtin(t_data *data)
 {
-	if (ft_strncmp(cmd[0], "cd", 3) == 0)
-		builtin_cd(cmd[1]);
-	if (ft_strncmp(cmd[0], "pwd", 3) == 0)
-		builtin_pwd();
-	if (ft_strncmp(cmd[0], "env", 3) == 0)
-		print_env(env);
-	if (ft_strncmp(cmd[0], "export", 6) == 0)
-		builtin_export(cmd, env);
-	if (ft_strncmp(cmd[0], "unset", 5) == 0)
-		builtin_unset(cmd, env);
-	if (ft_strncmp(cmd[0], "exit", 4) == 0)
-		builtin_exit();
-	if (ft_strncmp(cmd[0], "echo", 4) == 0)
-		builtin_echo(env, cmd);
-}
+	int	len;
 
-void	builtin_cd(char *path)
-{
-	if (chdir(path) == -1)
-		ft_putendl_fd(strerror(errno), 2);
+	len = ft_strlen(data->cmd[0]);
+	if (ft_strncmp(data->cmd[0], "cd", len) == 0)
+		builtin_cd(data->cmd[1], data->env);
+	if (ft_strncmp(data->cmd[0], "pwd", len) == 0)
+		builtin_pwd();
+	if (ft_strncmp(data->cmd[0], "env", len) == 0)
+		print_env(data->env);
+	if (ft_strncmp(data->cmd[0], "export", len) == 0)
+		builtin_export(data);
+	if (ft_strncmp(data->cmd[0], "unset", len) == 0)
+		builtin_unset(data->cmd, data->env);
+	if (ft_strncmp(data->cmd[0], "exit", len) == 0)
+		builtin_exit(data);
+	if (ft_strncmp(data->cmd[0], "echo", len) == 0)
+		builtin_echo(data);
 }
 
 void	builtin_pwd(void)
@@ -65,7 +70,21 @@ void	builtin_pwd(void)
 		ft_putendl_fd(strerror(errno), 2);
 }
 
-void	builtin_exit(void)
+void	builtin_exit(t_data *data)
 {
+	t_list *tmp;
+
+	if (data->cmd)
+		ft_free(data->cmd);
+	if (data->multi)
+		ft_free(data->multi);
+	while (data->env)
+	{
+		tmp = data->env;
+		data->env = data->env->next;
+		free(tmp->content);
+		free(tmp);
+	}
+	free(data);
 	exit(EXIT_SUCCESS);
 }
