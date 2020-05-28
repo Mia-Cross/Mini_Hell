@@ -2,6 +2,18 @@ is_builtin :
 rajouter comme condition que strlen = x
 si exit, free cmd et env
 
+builtin_echo :
+echo doit pouvoir imprimer tous les mots même si séparés par des espaces (a tester)
+tests à faire :
+e4r9p13/test_env> echo hello my friend
+hello my friend
+e4r9p13/test_env> echo $SHELL $USER hello my friend
+/bin/bash lilou hello my friend
+e4r9p13/test_env> echo -n $SHELL $USER hello my friend
+/bin/bash lilou hello my friende4r9p13/test_env> 
+e4r9p13/test_env> echo -n $SHELL $POUET hello my friend		#avec POUET ndef
+/bin/bash hello my friend
+
 A IMPLEMENTER :
 OK	Prompt
 	Lancer un executable
@@ -22,3 +34,6 @@ OK		exit
 	Gérer les variables d'env $VARIABLE
 	$?
 	Interruptions ctrl+C ctrl+D ctrl+\
+
+Dans le main :
+char **cmd avec cmd[i] = mots de la commande envoyée par l'utilisateur
