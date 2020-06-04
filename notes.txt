@@ -49,7 +49,7 @@ typedef struct	s_data
 	char		*line;		->ligne de commande tapée par l'utilisateur
 	char		**cmd;		->split de la ligne de commande selon les espaces
 	int			status;		->valeur retour de exec_cmd
-	int			fd;			->fd sur lequel écrire
+	t_list		*fd;		->fd sur lequel écrire
 }				t_data;
 
 /bin/

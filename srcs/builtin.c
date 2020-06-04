@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:21:34 by schene            #+#    #+#             */
-/*   Updated: 2020/05/28 18:45:23 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/03 17:42:48 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,7 @@ int		is_builtin(char *cmd)
 	return (0);
 }
 
-void	exec_builtin(t_data *data)
-{
-	int	len;
-
-	len = ft_strlen(data->cmd[0]);
-	if (ft_strncmp(data->cmd[0], "cd", len) == 0)
-		builtin_cd(data->cmd[1], data->env);
-	if (ft_strncmp(data->cmd[0], "pwd", len) == 0)
-		builtin_pwd();
-	if (ft_strncmp(data->cmd[0], "env", len) == 0)
-		print_env(data->env);
-	if (ft_strncmp(data->cmd[0], "export", len) == 0)
-		builtin_export(data);
-	if (ft_strncmp(data->cmd[0], "unset", len) == 0)
-		builtin_unset(data->cmd, data->env);
-	if (ft_strncmp(data->cmd[0], "exit", len) == 0)
-		builtin_exit(data);
-	if (ft_strncmp(data->cmd[0], "echo", len) == 0)
-		builtin_echo(data);
-}
-
-void	builtin_pwd(void)
+void	builtin_pwd(t_data *data)
 {
 	char	cwd[MAX_PATH];
 
@@ -68,23 +47,41 @@ void	builtin_pwd(void)
 		ft_putendl_fd(cwd, 1);
 	else
 		ft_putendl_fd(strerror(errno), 2);
+	data->status = 0;
+}
+
+void	exec_builtin(t_data *data)
+{
+	int	len;
+
+	len = ft_strlen(data->cmd[0]);
+	if (ft_strncmp(data->cmd[0], "cd", len) == 0)
+		builtin_cd(data);
+	if (ft_strncmp(data->cmd[0], "pwd", len) == 0)
+		builtin_pwd(data);
+	if (ft_strncmp(data->cmd[0], "env", len) == 0)
+		print_env(data);
+	if (ft_strncmp(data->cmd[0], "export", len) == 0)
+		builtin_export(data);
+	if (ft_strncmp(data->cmd[0], "unset", len) == 0)
+		builtin_unset(data);
+	if (ft_strncmp(data->cmd[0], "exit", len) == 0)
+		builtin_exit(data);
+	if (ft_strncmp(data->cmd[0], "echo", len) == 0)
+		builtin_echo(data);
 }
 
 void	builtin_exit(t_data *data)
 {
-	t_list *tmp;
-
+	ft_putstr("exit\n");
 	if (data->cmd)
 		ft_free(data->cmd);
 	if (data->multi)
 		ft_free(data->multi);
-	while (data->env)
-	{
-		tmp = data->env;
-		data->env = data->env->next;
-		free(tmp->content);
-		free(tmp);
-	}
+	if (data->line)
+		free(data->line);
+	free_lst(data->env);
+	close_fd(data);
 	free(data);
 	exit(EXIT_SUCCESS);
 }

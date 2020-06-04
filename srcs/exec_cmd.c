@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 15:48:44 by schene            #+#    #+#             */
-/*   Updated: 2020/05/27 17:53:41 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/04 15:57:02 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,69 +40,74 @@ static void		create_path(char **cmd, char *path)
 	cmd[0] = bin;
 }
 
-void			get_path(t_list *env, char **cmd)
+static void		exec_cmd(t_data *data, char **save)
 {
-	char		*path;
-
-	path = ft_strdup(variable_value(env, "$PATH"));
-	if (cmd[0][0] != '/' && (ft_strncmp(cmd[0], "./", 2) != 0))
-		create_path(cmd, path);
-	free(path);
-	path = NULL;
-}
-
-static int		exec_cmd(char **cmd, t_list *env)
-{
-	pid_t	pid;
 	char	**tab_env;
-	int		status;
 
-	pid = 0;
-	status = 0;
-	pid = fork();
-	if (pid == -1)
+	free(*save);
+	g_child_pid = 0;
+	data->status = 0;
+	g_child_pid = fork();
+	if (g_child_pid == -1)
 		ft_putendl_fd(strerror(errno), 2);
-	else if (pid > 0)
+	else if (g_child_pid > 0)
 	{
-		waitpid(pid, &status, 0);
-		kill(pid, SIGTERM);
+		waitpid(g_child_pid, &data->status, 0);
+		kill(g_child_pid, SIGTERM);
 	}
 	else
 	{
-		tab_env = convert_env_to_tab(env);
-		if (execve(cmd[0], cmd, tab_env) == -1)
+		tab_env = convert_env_to_tab(data->env);
+		if (execve(data->cmd[0], data->cmd, tab_env) == -1)
 			ft_putendl_fd(strerror(errno), 2);
 		free(tab_env);
 		exit(EXIT_FAILURE);
 	}
-	if (status > 255)
-		status -= 255;
-	return (status);
+	if (data->status > 255)
+		data->status -= 255;
+	g_child_pid = 0;
+}
+
+static void		get_path(t_data *data, int saved_stdout)
+{
+	char	*path;
+	char	*save;
+
+	save = ft_strdup(data->cmd[0]);
+	path = ft_strdup(var_value(data->env, "$PATH"));
+	if (data->cmd[0][0] != '/' && (ft_strncmp(data->cmd[0], "./", 2) != 0))
+		create_path(data->cmd, path);
+	free(path);
+	path = NULL;
+	if (data->cmd[0] != NULL)
+		exec_cmd(data, &save);
+	else
+	{
+		data->status = 127;
+		data->cmd[0] = save;
+		ft_putstr_fd("minishell: command not found: ", saved_stdout);
+		ft_putendl_fd(data->cmd[0], saved_stdout);
+	}
 }
 
 void			exec_line(t_data *data)
 {
-	char	*save;
+	int		saved_stdout;
 
-	data->cmd = split_spaces(data->line, " \n\t");
-	if (data->cmd[0] && is_builtin(data->cmd[0]))
-		exec_builtin(data);
-	else if (data->cmd[0])
+	if ((saved_stdout = fd_handling(data, 1)) == -1)
+		;
+	else if (data->line[0])
 	{
-		save = ft_strdup(data->cmd[0]);
-		get_path(data->env, data->cmd);
-		if (data->cmd[0] != NULL)
-			data->status = exec_cmd(data->cmd, data->env);
-		else
-		{
-			data->status = 127;
-			ft_putstr("minishell: command not found: ");
-			ft_putendl_fd(save, 2);
-			data->cmd[0] = ft_strdup("null");
-		}
-		free(save);
-		save = NULL;
+		data->cmd = split_spaces(data->line, " \n\t");
+		data->cmd[0] = remove_quotes(data->cmd[0]);
+		if (data->cmd[0] && is_builtin(data->cmd[0]))
+			exec_builtin(data);
+		else if (data->cmd[0])
+			get_path(data, saved_stdout);
+		ft_free(data->cmd);
+		data->cmd = NULL;
 	}
-	ft_free(data->cmd);
-	data->cmd = NULL;
+	fd_handling(data, 0);
+	free(data->line);
+	data->line = NULL;
 }

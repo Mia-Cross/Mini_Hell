@@ -5,6 +5,7 @@ SRCDIR = srcs
 OBJDIR = .obj
 
 SRCS =	builtin.c \
+		builtin_utils.c \
 		echo.c \
 		env.c \
 		env_export.c \
@@ -13,8 +14,13 @@ SRCS =	builtin.c \
 		builtin_cd.c \
 		split_cmd.c \
 		split_spaces.c \
+		split_quotes.c \
 		remove_single_quote.c \
-		exec_cmd.c
+		redirection.c \
+		exec_cmd.c \
+		input_redirection.c \
+		redirection_utils.c \
+		fd_handling.c
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 

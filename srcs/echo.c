@@ -5,105 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/07 02:26:00 by schene            #+#    #+#             */
-/*   Updated: 2020/05/27 16:35:24 by schene           ###   ########.fr       */
+/*   Created: 2020/05/30 11:26:54 by schene            #+#    #+#             */
+/*   Updated: 2020/06/03 12:12:46 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-char			*variable_value(t_list *env, char *var)
+static char		*echo_str_sgl(char *str)
 {
-	char	*name;
-	int		len;
-	int		len2;
-
-	name = &var[1];
-	while (env)
-	{
-		len = (ft_strlen(env->content) -
-			ft_strlen(ft_strchr(env->content, '=')));
-		len2 = (ft_strlen(name) - ft_strlen(ft_strchr(name, ' ')));
-		len = len2 > len ? len2 : len;
-		if (ft_strncmp(env->content, name, len) == 0)
-			return (ft_strrchr(env->content, '=') + 1);
-		env = env->next;
-	}
-	return (NULL);
-}
-
-static int		echo_variable(t_data *data, int i, char **ret, int j)
-{
-	char	*str;
-	char	*tmp;
-
-	if (data->cmd[i][j + 1] == '?')
-	{
-		str = ft_itoa(data->status);
-		tmp = ft_strjoin(*ret, str);
-		free(str);
-		free(*ret);
-		*ret = tmp;
-		j += 2;
-	}
-	else
-	{
-		tmp = ft_strjoin(*ret, variable_value(data->env, &data->cmd[i][j]));
-		free(*ret);
-		*ret = tmp;
-		j++;
-		while (data->cmd[i][j] && ft_isalnum(data->cmd[i][j]))
-			j++;
-		j--;
-	}
-	return (j);
-}
-
-static char		*echo_str(t_data *data, int i)
-{
-	char	*tmp;
-	char	*str;
+	int		i;
 	char	*ret;
-	int		j;
+	char	*s;
 
-	j = -1;
-	if (data->cmd[i] == NULL)
-		return (NULL);
+	i = -1;
 	ret = ft_strdup("\0");
-	while (data->cmd[i][++j])
+	s = ft_strtrim(str, "\'");
+	while (s[++i])
 	{
-		if (data->cmd[i][j] == '$' && data->cmd[i][j + 1] &&
-			(ft_isalnum(data->cmd[i][j + 1]) || data->cmd[i][j + 1] == '?'))
-			j = echo_variable(data, i, &ret, j);
-		else
-		{
-			str = ft_substr(data->cmd[i], j, 1);
-			tmp = ft_strjoin(ret, str);
-			free(str);
-			free(ret);
-			ret = tmp;
-		}
+		ret = clean_ft_strjoin(ret, ft_substr(s, i, 1));
+		if (!s[i])
+			break ;
 	}
+	free(s);
 	return (ret);
 }
 
-static void		fill_to_print(t_data *data, char **to_print, int i)
+static char		*echo_str(char *str, t_data *data)
 {
-	char	*tmp;
-	char	*str;
+	int		i;
+	char	*ret;
+	char	*s;
 
-	str = echo_str(data, i);
-	tmp = ft_strjoin(*to_print, str);
-	free(str);
-	free(*to_print);
-	*to_print = tmp;
-	if (data->cmd[i + 1])
+	i = -1;
+	ret = ft_strdup("\0");
+	if (str[0] != '\'')
 	{
-		str = ft_strdup(" ");
-		tmp = ft_strjoin(*to_print, str);
+		s = ft_strtrim(str, "\"");
+		while (s[++i])
+		{
+			if (s[i] == '$' && s[i + 1] && (ft_isalnum(s[i + 1])
+				|| s[i + 1] == '?'))
+				i = echo_variable(s, data, &ret, i);
+			else
+				ret = clean_ft_strjoin(ret, ft_substr(s, i, 1));
+			if (!s[i])
+				break ;
+		}
+		free(s);
+	}
+	else
+		ret = clean_ft_strjoin(ret, echo_str_sgl(str));
+	return (ret);
+}
+
+static int		echo_next(t_data *data, char *cmd)
+{
+	int		ret;
+	int		j;
+	char	*str;
+	char	**tab;
+
+	tab = tab_of_quotes(cmd);
+	j = -1;
+	ret = 0;
+	while (tab[++j])
+	{
+		str = echo_str(tab[j], data);
+		if (str[0])
+			ret++;
 		free(str);
-		free(*to_print);
-		*to_print = tmp;
+	}
+	ft_free(tab);
+	return (ret);
+}
+
+static void		fill_to_print(t_data *data, char **to_p, int i)
+{
+	int		j;
+	int		chg;
+	char	*str;
+	char	**tab;
+
+	*to_p = ft_strdup("\0");
+	while (data->cmd[++i])
+	{
+		tab = tab_of_quotes(data->cmd[i]);
+		j = -1;
+		while (tab[++j])
+		{
+			chg = 1;
+			str = echo_str(tab[j], data);
+			if (!str[0])
+				chg = 0;
+			*to_p = clean_ft_strjoin(*to_p, str);
+		}
+		if (data->cmd[i + 1] && echo_next(data, data->cmd[i + 1]) && *to_p[0])
+			*to_p = clean_ft_strjoin(*to_p, ft_strdup(" "));
+		ft_free(tab);
 	}
 }
 
@@ -113,11 +112,10 @@ void			builtin_echo(t_data *data)
 	char	*to_print;
 
 	i = 0;
-	to_print = ft_strdup("\0");
 	if (data->cmd[1] && (ft_strncmp(data->cmd[1], "-n", 3) == 0))
 		i = 1;
-	while (data->cmd[++i])
-		fill_to_print(data, &to_print, i);
+	fill_to_print(data, &to_print, i);
+	data->status = 0;
 	if (data->cmd[1] && (ft_strncmp(data->cmd[1], "-n", 3) == 0))
 		ft_putstr(to_print);
 	else

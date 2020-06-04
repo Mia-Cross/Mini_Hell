@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 15:59:51 by schene            #+#    #+#             */
-/*   Updated: 2020/05/27 15:17:23 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/03 18:06:26 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,9 @@ static int	fill_sp_tab(char **tab, char *tmp, char const *charset)
 		k = 0;
 		while (tmp[i] && k < len)
 			tab[j][k++] = tmp[i++];
-		tab[j][k] = 0;
+		tab[j][k] = '\0';
 		if (tmp[i] && is_sep(tmp[i], charset))
 			i++;
-		tab[j] = remove_quotes(tab[j]);
 	}
 	tab[j] = 0;
 	return (1);
@@ -106,16 +105,13 @@ static int	fill_sp_tab(char **tab, char *tmp, char const *charset)
 char		**split_spaces(char *s, char const *charset)
 {
 	char	**tab;
-	char	*tmp;
 
 	if (!s)
 		return (NULL);
-	tmp = ft_strtrim(s, " \t\n");
 	if (!(tab = (char **)malloc(sizeof(char *) *
-		(word_count(tmp, charset) + 1))))
+		(word_count(s, charset) + 1))))
 		return (NULL);
-	if (fill_sp_tab(tab, tmp, charset) == 0)
+	if (fill_sp_tab(tab, s, charset) == 0)
 		return (NULL);
-	free(tmp);
 	return (tab);
 }
