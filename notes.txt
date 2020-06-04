@@ -8,19 +8,19 @@ OK	Prompt
 		en passant pas la variable d'env PATH
 		en passant un path absolu
 	Builtins :
-		echo (-n)
+OK		echo (-n)
 OK		cd
 OK		pwd
-		export
-		unset
-		env
+OK		export
+OK		unset
+OK		env
 OK		exit
-	Prendre plusieurs commandes avec ;
+OK	Prendre plusieurs commandes avec ;
 	Différencier ' / "
 	Redirections < > >>
 	Pipes |
-	Gérer les variables d'env $VARIABLE
-	$?
+OK	Gérer les variables d'env $VARIABLE
+OK	$?
 	Interruptions :
 		ctrl+C  SIGINT
 		ctrl+D  EOF
