@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 15:40:08 by schene            #+#    #+#             */
-/*   Updated: 2020/06/03 18:06:56 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/05 17:18:49 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,48 +33,63 @@ static int		change_value(t_list *env, char *name, char *newvalue)
 	return (0);
 }
 
-void			change_dir(t_data *data)
+void			change_dir(t_data *data, char *path)
 {
-	char	old_pwd[MAX_PATH];
-	char	pwd[MAX_PATH];
-
-	getcwd(old_pwd, MAX_PATH);
-	if (chdir(data->cmd[1]) == 0)
+	char			old_pwd[MAX_PATH];
+	char			pwd[MAX_PATH];
+	struct stat		*buf;
+	char			*str;
+	
+	if (getcwd(old_pwd, MAX_PATH) == NULL)
 	{
-		getcwd(pwd, MAX_PATH);
-		change_value(data->env, "PWD", pwd);
-		change_value(data->env, "OLDPWD", old_pwd);
+		str = ft_strdup("cd");
+		ft_error(&str);
+		return ;
+	}
+	buf = (struct stat *)malloc(sizeof(struct stat));
+	if (lstat(path, buf) == 0)
+	{
+		if (chdir(path) == 0)
+		{
+			getcwd(pwd, MAX_PATH);
+			change_value(data->env, "PWD", pwd);
+			change_value(data->env, "OLDPWD", old_pwd);
+		}
 	}
 	else
 	{
-		ft_putstr_fd("minishell: cd: ", 2);
-		ft_putendl_fd(strerror(errno), 2);
+		str = ft_strdup("cd");
+		ft_error(&str);
 		data->status = 1;
 	}
+	free(buf);
 }
 
 void			builtin_cd(t_data *data)
 {
+	char	*str;
+	char	*tmp;
+
 	data->status = 0;
+	tmp = NULL;
 	if (!data->cmd[1])
-	{
-		ft_putendl_fd("minishell: cd: no arguments", 2);
-		return ;
-	}
-	if (data->cmd[2])
+		str = ft_strdup(var_value(data->env, "$HOME"));
+	else if (data->cmd[2])
 	{
 		ft_putendl_fd("minishell: cd: too much arguments", 2);
 		data->status = 1;
 		return ;
 	}
-	if (data->cmd[1][0] == '$')
+	else
 	{
-		if (var_value(data->env, data->cmd[1]) == NULL)
-			data->cmd[1] = "$HOME";
-		data->cmd[1] = var_value(data->env, data->cmd[1]);
+		str = echo_str(data->cmd[1], data);
+		if (str[0] == '~')
+		{
+			tmp = ft_strjoin(var_value(data->env, "$HOME"), &str[1]);
+			free(str);
+			str = tmp;
+		}
 	}
-	if (data->cmd[1][0] == '~')
-		data->cmd[1] = ft_strjoin(var_value(data->env, "$HOME"),
-				&data->cmd[1][1]);
-	change_dir(data);
+	change_dir(data, str);
+	free(str);
 }

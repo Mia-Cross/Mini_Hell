@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 15:56:33 by schene            #+#    #+#             */
-/*   Updated: 2020/06/04 16:15:39 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/05 16:23:07 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int			handling_stdin(t_data *data, int start)
 	static int	saved_input;
 
 	if (start && fill_fd(data) == -1)
+	{
+		data->status = 1;
 		return (-1);
+	}
 	if (start && find_input(data) == -1)
 		return (-1);
 	if (data->input != 0 && start)
@@ -25,7 +28,7 @@ int			handling_stdin(t_data *data, int start)
 		saved_input = dup(STDIN_FILENO);
 		dup2(data->input, STDIN_FILENO);
 	}
-	if (saved_input && !start)
+	else if (saved_input)
 	{
 		dup2(saved_input, STDIN_FILENO);
 		close(saved_input);
@@ -58,6 +61,7 @@ int			fd_handling(t_data *data, int start)
 		close(saved_stdout);
 		saved_stdout = 0;
 	}
-	handling_stdin(data, 0);
+	if (!start)
+		handling_stdin(data, 0);
 	return (0);
 }

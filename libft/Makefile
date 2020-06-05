@@ -97,7 +97,7 @@ $(NAME):	$(OBJS)
 	@echo Compiled $(NAME) successfully !
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(OBJDIR)
-	@gcc $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@
+	@clang $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@
 
 $(OBJDIR) :
 	@mkdir -p .obj
