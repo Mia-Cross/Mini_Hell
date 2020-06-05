@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:28:49 by schene            #+#    #+#             */
-/*   Updated: 2020/06/05 14:46:16 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/05 19:07:30 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_data
 	int			status;
 	t_list		*fd;
 	int			input;
+	char		*dir;
 }				t_data;
 
 int				is_builtin(char *cmd);

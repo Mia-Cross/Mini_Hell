@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/05 14:45:32 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/05 19:04:30 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static t_data		*init_data(char **main_env)
 	data->fd = NULL;
 	data->line = NULL;
 	data->multi = NULL;
+	data->dir = ft_strdup(var_value(data->env, "$PWD"));
 	data->status = 0;
 	data->input = 0;
 	return (data);
@@ -76,6 +77,7 @@ static void			exec_shell(t_data *data, char *line)
 			while (data->multi[++i])
 			{
 				data->line = ft_strtrim(data->multi[i], " \n\t");
+				data->line = echo_str(data->line, data);
 				exec_line(data);
 				close_fd(data);
 			}
