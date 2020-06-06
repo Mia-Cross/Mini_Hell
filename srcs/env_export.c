@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 15:30:08 by schene            #+#    #+#             */
-/*   Updated: 2020/06/05 15:27:59 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/06 16:07:01 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int				check_var_name(char **str, t_data *data)
 	name = ft_substr(*str, 0,
 		(ft_strlen(*str) - ft_strlen(ft_strchr(*str, '='))));
 	if (!name[0])
-		return(-1);
+		return (-1);
 	i = -1;
 	while (name[++i])
 	{
@@ -46,7 +46,7 @@ int				check_var_name(char **str, t_data *data)
 			if (name[i] == '+' && !name[i + 1])
 			{
 				free(name);
-				return(1);
+				return (1);
 			}
 			data->status = 1;
 			ft_putstr_fd("minishell: export: invalid variable name: ", 2);
@@ -68,7 +68,7 @@ char			*removeplus(char *str)
 	end = ft_strchr(str, '+');
 	if (end == NULL)
 		return (str);
-	end = ft_substr(end, 1,ft_strlen(end - 1));
+	end = ft_substr(end, 1, ft_strlen(end - 1));
 	start = ft_substr(str, 0, ft_strlen(str) - ft_strlen(end) - 1);
 	free(str);
 	str = ft_strjoin(start, end);
@@ -80,6 +80,7 @@ char			*removeplus(char *str)
 static int		replace_ifexist(t_list *env, char *str)
 {
 	int		i;
+	int		len;
 	int		a;
 	char	*tmp;
 
@@ -92,7 +93,9 @@ static int		replace_ifexist(t_list *env, char *str)
 	i -= a;
 	while (env)
 	{
-		if (ft_strncmp(env->content, str, i) == 0)
+		len = len_variable(env->content);
+		len = i > len ? i : len;
+		if (ft_strncmp(env->content, str, len) == 0)
 		{
 			if (a)
 			{
