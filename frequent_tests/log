@@ -1,0 +1,225 @@
+______________________________________________________________________
+			SORTIE STANDARD			
+______________________________________________________________________
+14c14
+< 
+---
+> #\/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
+16,17c16,18
+< #/Users/lemarabe/Desktop/MC_minishell/frequent_testsWE()*&*TBYT^%&# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w[q3&]]" ;
+< echo 02-3 ; echo #$\PWDOWE()\*&*TBYT^%&# \o93 \*o3 3r-3 943j tg"erp ew3\ rk%[323w\[q3&]]
+---
+> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w[q3&]]
+> 02-3
+> #$\PWDOWE()\*&*TBYT^%&# \o93 \*o3 3r-3 943j tgerp ew3\ rk%[323w\[q3&]]'
+19c20,27
+< 
+---
+> 04
+> THIS IS THE ONLY CONTENT.
+> 0
+> THIS IS THE ONLY CONTENT.
+> 0
+> 05
+> 0
+> 06
+32,33d39
+< $
+< \
+35,38c41,46
+< 
+< \#
+< */*echo **
+< "\3 \= faux" ' \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"' \3 clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file5 file6 file7 file8 file9 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 o93 tests
+---
+> \\
+> \\$
+> #
+> \\#
+> */*\
+> *\*
+40c48,49
+< 
+---
+> \*
+> #
+42,43c51,52
+< $HOME
+< $HOME
+---
+> \/Users/lemarabe
+> $\HOME
+45,46c54,56
+< |
+< ^
+---
+> \|
+> &
+> \^
+49c59
+< (
+---
+> \(
+50a61,83
+> \%
+> ;;
+> :
+> \$
+> \\
+> \\$
+> #
+> \\#
+> */*\
+> *\*
+> *
+> \*
+> #
+> /Users/lemarabe
+> \/Users/lemarabe
+> $\HOME
+> 
+> \|
+> &
+> \^
+> ^
+> _
+> \(
+51a85
+> \%
+54,55d87
+< $
+< \
+56a89,96
+> \\
+> \\$
+> #
+> \\#
+> */*\
+> *\*
+> *
+> \*
+58a99,101
+> /Users/lemarabe
+> \/Users/lemarabe
+> $\HOME
+60,70c103,113
+< */*"
+< echo **
+< echo *
+< echo *
+< echo #
+< echo /Users/lemarabe
+< echo $HOME
+< echo $HOME
+< echo 
+< echo |
+< echo 
+---
+> \|
+> \&
+> &
+> \^
+> ^
+> \_
+> \(
+> %
+> \%
+> Im Here
+> Im Here
+72,111c115,152
+< echo \2 \> \3 \= faux
+< echo 2 > 3 = faux
+< echo "\2 \> \3 \= faux"
+< echo "\2 \> \3" = faux
+< echo 2 \> "\3 \= faux"
+< echo "\2 > 3 = faux"
+< echo 2 \> \3 = faux
+< echo bonjour les amis
+< echo "bonjour les amis"
+< echo bonjour les amis
+< echo "bonjour les amis"
+< echo bonjour les amis
+< echo "bonjour" les amis
+< echo bonjour les amis
+< echo "bonjour les amis"
+< echo bonjour les "amis"
+< echo \bonjour \les \amis
+< echo "\bonjour \les \amis"
+< echo bonjour les amis
+< echo cest une phrase un peu longue pour tester les #commentaires
+< echo cest une phrase un peu longue pour tester #les commentaires
+< echo cest une phrase un peu longue pour #tester les commentaires
+< echo cest une phrase un peu longue #pour tester les commentaires
+< echo cest une phrase un peu #longue pour tester les commentaires
+< echo cest une phrase un #peu longue pour tester les commentaires
+< echo cest une phrase #un peu longue pour tester les commentaires
+< echo cest une #phrase un peu longue pour tester les commentaires
+< echo cest #une phrase un peu longue pour tester les commentaires
+< echo #cest une phrase un peu longue pour tester les commentaires
+< echo "cest une phrase un peu longue pour tester les #commentaires"
+< echo "cest une phrase un peu longue pour tester #les commentaires"
+< echo "cest une phrase un peu longue pour #tester les commentaires"
+< echo "cest une phrase un peu longue #pour tester les commentaires"
+< echo "cest une phrase un peu #longue pour tester les commentaires"
+< echo "cest une phrase un #peu longue pour tester les commentaires"
+< echo "cest une phrase #un peu longue pour tester les commentaires"
+< echo "cest une #phrase un peu longue pour tester les commentaires"
+< echo "cest #une phrase un peu longue pour tester les commentaires"
+< echo "#cest une phrase un peu longue pour tester les commentaires"
+< echo cest une phrase un peu longue pour tester les
+---
+> \2 \> \3 \= faux
+> \2 \> \3 \= faux
+> \2 \> \3 \= faux
+> \2 \> \3 \= faux
+> \2 \> \3 \= faux
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> bonjour les amis
+> \bonjour \les \amis
+> \bonjour \les \amis
+> \bonjour \les \amis
+> cest une phrase un peu longue pour tester les #commentaires
+> cest une phrase un peu longue pour tester #les commentaires
+> cest une phrase un peu longue pour #tester les commentaires
+> cest une phrase un peu longue #pour tester les commentaires
+> cest une phrase un peu #longue pour tester les commentaires
+> cest une phrase un #peu longue pour tester les commentaires
+> cest une phrase #un peu longue pour tester les commentaires
+> cest une #phrase un peu longue pour tester les commentaires
+> cest #une phrase un peu longue pour tester les commentaires
+> #cest une phrase un peu longue pour tester les commentaires
+> cest une phrase un peu longue pour tester les #commentaires
+> cest une phrase un peu longue pour tester #les commentaires
+> cest une phrase un peu longue pour #tester les commentaires
+> cest une phrase un peu longue #pour tester les commentaires
+> cest une phrase un peu #longue pour tester les commentaires
+> cest une phrase un #peu longue pour tester les commentaires
+> cest une phrase #un peu longue pour tester les commentaires
+> cest une #phrase un peu longue pour tester les commentaires
+> cest #une phrase un peu longue pour tester les commentaires
+> #cest une phrase un peu longue pour tester les commentaires
+> cest une phrase un peu longue pour tester les #commentaires
+120a162
+> \#\()*&*^%&\#  \> o93 \ 3r-3 943j  tgerp ew3 rk[323w[q3&]]\ > file4
+______________________________________________________________________
+			SORTIE ERREURS			
+______________________________________________________________________
+1,3c1,4
+< bash: line 3: tests/readonly: Permission denied
+< bash: line 13: syntax error near unexpected token `('
+< bash: line 13: `echo 02-5 ; echo \#$PWD_\OWE()*\&*TBYT^\%&# o93 o3 $HOME 3r-3 943j tgerp ew\>\>3 rk[323w$[q3&]]\$ ;'
+---
+> minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
+> minishell>> minishell: tests/all_access: Permission denied
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: parse error near ' >'
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> exit
+______________________________________________________________________
+		COMPARAISONS DE FICHIERS		
+______________________________________________________________________

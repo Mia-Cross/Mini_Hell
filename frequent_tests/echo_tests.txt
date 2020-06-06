@@ -1,0 +1,138 @@
+echo bonjour
+echo        bonjour
+echo "bonjour"
+echo "            bonjour"
+echo "      bonjour   "
+echo 'bonjour'
+echo '            bonjour'
+echo '      bonjour   '
+echo       bonjour   ;
+echo "--------;_________"
+echo --------;_________
+echo :
+echo \$
+echo \\
+echo \\$
+echo #
+echo \\#
+echo */*\
+echo *\*
+echo *
+echo \*
+echo #
+echo $HOME
+echo \$HOME
+echo $\HOME
+echo $HOME_stuff
+echo \|
+echo &
+echo \^
+echo ^
+echo _
+echo \(
+echo %
+echo \%
+echo ";;"
+echo ":"
+echo "\$"
+echo "\\"
+echo "\\$"
+echo "#"
+echo "\\#"
+echo "*/*\"
+echo "*\*"
+echo "*"
+echo "\*"
+echo "#"
+echo "$HOME"
+echo "\$HOME"
+echo "$\HOME"
+echo "$HOME_stuff"
+echo "\|"
+echo "&"
+echo "\^"
+echo "^"
+echo "_"
+echo "\("
+echo "%"
+echo "\%"
+echo ';;'
+echo ':'
+echo '\$'
+echo '\\'
+echo '\\$'
+echo '#'
+echo '\\#'
+echo '*/*\'
+echo '*\*'
+echo '*'
+echo '\*'
+echo '#'
+echo '\#'
+echo '$HOME'
+echo '\$HOME'
+echo '$\HOME'
+echo '$HOME_stuff'
+echo '\|'
+echo '\&'
+echo '&'
+echo '\^'
+echo '^'
+echo '\_'
+echo '\('
+echo '%'
+echo '\%'
+echo "I'm Here"
+echo 'I'm Here'
+echo I'm Here
+echo \2 \> \3 \= faux
+echo '\2 \> \3 \= faux'
+echo "\2 \> \3 \= faux"
+echo "\2 \> \3" '\= faux'
+echo '\2' \> "\3 \= faux"
+echo "\2 '\> \3 \=' faux"
+echo '\2" \> \3" \= faux'
+echo bonjour les amis
+echo "bonjour les amis"
+echo 'bonjour les amis'
+echo "'bonjour les amis'"
+echo '"bonjour les amis"'
+echo "bonjour" 'les' amis
+echo 'bonjour "les" amis'
+echo "bonjour 'les' amis"
+echo 'bonjour 'les "amis"
+echo \bonjour \les \amis
+echo "\bonjour \les \amis"
+echo '\bonjour \les \amis'
+echo cest une phrase un peu longue pour tester les #commentaires
+echo cest une phrase un peu longue pour tester #les commentaires
+echo cest une phrase un peu longue pour #tester les commentaires
+echo cest une phrase un peu longue #pour tester les commentaires
+echo cest une phrase un peu #longue pour tester les commentaires
+echo cest une phrase un #peu longue pour tester les commentaires
+echo cest une phrase #un peu longue pour tester les commentaires
+echo cest une #phrase un peu longue pour tester les commentaires
+echo cest #une phrase un peu longue pour tester les commentaires
+echo #cest une phrase un peu longue pour tester les commentaires
+echo "cest une phrase un peu longue pour tester les #commentaires"
+echo "cest une phrase un peu longue pour tester #les commentaires"
+echo "cest une phrase un peu longue pour #tester les commentaires"
+echo "cest une phrase un peu longue #pour tester les commentaires"
+echo "cest une phrase un peu #longue pour tester les commentaires"
+echo "cest une phrase un #peu longue pour tester les commentaires"
+echo "cest une phrase #un peu longue pour tester les commentaires"
+echo "cest une #phrase un peu longue pour tester les commentaires"
+echo "cest #une phrase un peu longue pour tester les commentaires"
+echo "#cest une phrase un peu longue pour tester les commentaires"
+echo 'cest une phrase un peu longue pour tester les #commentaires'
+echo 'cest une phrase un peu longue pour tester #les commentaires'
+echo 'cest une phrase un peu longue pour #tester les commentaires'
+echo 'cest une phrase un peu longue #pour tester les commentaires'
+echo 'cest une phrase un peu #longue pour tester les commentaires'
+echo 'cest une phrase un #peu longue pour tester les commentaires'
+echo 'cest une phrase #un peu longue pour tester les commentaires'
+echo 'cest une #phrase un peu longue pour tester les commentaires'
+echo 'cest #une phrase un peu longue pour tester les commentaires'
+echo '#cest une phrase un peu longue pour tester les commentaires'
+echo ;;
+
