@@ -1,0 +1,4 @@
+echo lol
+echo #lol
+echo lalie
+exit
