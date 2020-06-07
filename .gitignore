@@ -1,10 +1,9 @@
 minishell
-minishell-tester
-tester_solaldunckel
+tests
 solaldunckel
-brokenfiles
 .obj
-libft/.obj
 libft/libft.a
 .DS_Store
-*/.DS_Store
+libft/.DS_Store
+minishell-tester
+broken_files

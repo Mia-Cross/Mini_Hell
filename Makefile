@@ -50,7 +50,7 @@ $(NAME) : $(OBJS) $(LIB)
 	@printf "[$(NAME)] "
 	clang $(CFLAGS) -o $(NAME) ${OBJS} $(LIB)
 	@echo Compiled $(NAME) successfully !
-	@echo $(NAME) > .gitignore
+	@echo $(NAME) >> .gitignore
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(OBJDIR)
 	clang $(CFLAGS) -c $< -o $@
