@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 14:37:25 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 15:45:07 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/07 20:41:47 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ char			*echo_str(char *str, t_data *data, int m)
 	{
 		while (s[++i])
 		{
-			if (s[i] == '$' && s[i + 1] && (ft_isalnum(s[i + 1])
-				|| s[i + 1] == '?'))
+			if (s[i] == '$' && is_meta(s, i) && s[i + 1] &&
+			(ft_isalnum(s[i + 1]) || s[i + 1] == '?'))
 				i = echo_variable(s, data, &ret, i);
 			else
 				ret = clean_ft_strjoin(ret, ft_substr(s, i, 1));

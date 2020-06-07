@@ -1,8 +1,10 @@
-\/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&\# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
-\#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT^%&\# o93$\+ o3 3r-3 943j tgerp ew3@ r.k[323w[q3&]]
-#$\PWDOWE()\*&*TBYT^%&\# \o93 \*o3 3r-3 943j tgerp ew3\ rk%[323w\[q3&]]
-\#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w$[q3&]]\$
-\/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&\# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
-\#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-3 \943j tgerp ew3@ r.k["\323w[q3&]]
-\#$\PWDOWE()\*&*T"BYT^%&" \# \o93
-\#\WE()*&\*$TBYT^%&\# \> o93 \ 3r-3 943j tgerp e\w3 rk[323w[q3&]]\
+\$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$
+\#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT^%&\# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w['q3&]]
+#$\PWDOWE()\*&*TBYT^%&"\# \o93 \*o3 3r-3 943j tg"erp ew3\ rk%[323w\[q3&]]
+\#$PWD_OWE*&*^%&\#  \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"
+\#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w0]$
+/Users/lemarabe/Desktop/MC_minishell/frequent_tests clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file4 file5 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
+\#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k[\323w[q3&]]
+#$PWDOWE()\*&*T$LS"BYT^%&" \# \o93  \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"
+\#\$PWD_OWE()*&\*$TBYT^%&\#  \> o93 $HOMEo3  3r$POUIC-3 943j  tgerp e\w3 rk[323w[q3&]]\'
+\#\OWE()*\&*TBYT^\%&\# o9\3 o3 \ME 3r-3 943j tgerp ew\>\>3 rk[323w0]$

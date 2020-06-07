@@ -1,179 +1,172 @@
 ______________________________________________________________________
 			SORTIE STANDARD			
 ______________________________________________________________________
-0a1,2
-> THIS IS THE ONLY CONTENT. > tests/readonly
-> hello > tests/all_access
-12a15,17
-> #\/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
-> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w[q3&]]
-> #$\PWDOWE()\*&*TBYT^%&# \o93 \*o3 3r-3 943j tgerp ew3\ rk%[323w\[q3&]]'
-15c20
-< 1
----
-> 0
-32,33d36
-< $
-< \
-35,38c38,43
-< 
-< \#
-< */*echo **
-< "\3 \= faux" ' \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"' \3 clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file5 file6 file7 file8 file9 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 o93 tests
----
-> \\
-> \\$
-> #
-> \\#
-> */*\
-> *\*
-40c45,46
+1,2c1,2
+< LS HOME AVEC VARIABLES D'ENV
 < 
 ---
-> \*
-> #
-42,43c48,49
-< $HOME
-< $HOME
+> LS HOME AVEC VARIABLES DENV
+>  
+14c14
+< 
 ---
-> \/Users/lemarabe
-> $\HOME
-45,46c51,53
-< |
-< ^
+>  
+16c16
+< 
 ---
-> \|
-> &
-> \^
-49c56
-< (
+>  
+21c21
+< 
 ---
-> \(
-50a58,80
-> \%
-> ;;
-> :
-> \$
-> \\
-> \\$
-> #
-> \\#
-> */*\
-> *\*
-> *
-> \*
-> #
-> /Users/lemarabe
-> \/Users/lemarabe
-> $\HOME
-> 
-> \|
-> &
-> \^
-> ^
-> _
-> \(
-51a82
-> \%
-54,55d84
-< $
-< \
-56a86,93
-> \\
-> \\$
-> #
-> \\#
-> */*\
-> *\*
-> *
-> \*
-58a96,98
-> /Users/lemarabe
-> \/Users/lemarabe
-> $\HOME
-60,70c100,110
-< */*"
-< echo **
-< echo *
-< echo *
-< echo #
-< echo /Users/lemarabe
-< echo $HOME
-< echo $HOME
-< echo 
-< echo |
-< echo 
+>  
+23c23
+< 
 ---
-> \|
-> \&
-> &
-> \^
-> ^
-> \_
-> \(
-> %
-> \%
+>  
+25c25
+< 
+---
+>  
+27c27
+< 
+---
+>  
+40c40
+< 
+---
+>  
+43,52c43,52
+< 02 : $
+< 03 : \
+< 04 : \$
+< 05 : 
+< 06 : \#
+< 07 : */* 
+< 08 : **
+< 09 : clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
+< 10 : *
+< 11 : 
+---
+> 02 : \$
+> 03 : \\
+> 04 : \\$
+> 05 : #
+> 06 : \\#
+> 07 : */*\
+> 08 : *\*
+> 09 : *
+> 10 : \*
+> 11 : #
+54,55c54,55
+< 13 : $HOME
+< 14 : $HOME
+---
+> 13 : \$HOME
+> 14 : $\HOME
+57,58c57,59
+< 16 : |
+< 17 : 18 : ^
+---
+> 16 : \|
+> 17 : &
+> 18 : \^
+61c62
+< 21 : (
+---
+> 21 : \(
+63,64c64,65
+< 23 : %
+< 
+---
+> 23 : \%
+>  
+67,70c68,70
+< 02 : $
+< 03 : \
+< 04 : 
+< \$
+---
+> 02 : \$
+> 03 : \\
+> 04 : \\$
+72,73c72,73
+< 06 : \#
+< 07 : */*"
+---
+> 06 : \\#
+> 07 : */*\
+79c79
+< 13 : $HOME
+---
+> 13 : \$HOME
+90c90
+< 
+---
+>  
+103c103
+< 12 : $HOME
+---
+> 12 : /Users/lemarabe
+106c106
+< 15 : $HOME_stuff
+---
+> 15 : 
+115c115
+< 
+---
+>  
+117d116
+< I'm Here
+119,120c118,120
+< echo Im Here
+< 
+---
 > Im Here
 > Im Here
-72,111c112,149
-< echo \2 \> \3 \= faux
-< echo 2 > 3 = faux
-< echo "\2 \> \3 \= faux"
-< echo "\2 \> \3" = faux
-< echo 2 \> "\3 \= faux"
-< echo "\2 > 3 = faux"
-< echo 2 \> \3 = faux
-< echo bonjour les amis
-< echo "bonjour les amis"
-< echo bonjour les amis
-< echo "bonjour les amis"
-< echo bonjour les amis
-< echo "bonjour" les amis
-< echo bonjour les amis
-< echo "bonjour les amis"
-< echo bonjour les "amis"
-< echo \bonjour \les \amis
-< echo "\bonjour \les \amis"
-< echo bonjour les amis
-< echo cest une phrase un peu longue pour tester les #commentaires
-< echo cest une phrase un peu longue pour tester #les commentaires
-< echo cest une phrase un peu longue pour #tester les commentaires
-< echo cest une phrase un peu longue #pour tester les commentaires
-< echo cest une phrase un peu #longue pour tester les commentaires
-< echo cest une phrase un #peu longue pour tester les commentaires
-< echo cest une phrase #un peu longue pour tester les commentaires
-< echo cest une #phrase un peu longue pour tester les commentaires
-< echo cest #une phrase un peu longue pour tester les commentaires
-< echo #cest une phrase un peu longue pour tester les commentaires
-< echo "cest une phrase un peu longue pour tester les #commentaires"
-< echo "cest une phrase un peu longue pour tester #les commentaires"
-< echo "cest une phrase un peu longue pour #tester les commentaires"
-< echo "cest une phrase un peu longue #pour tester les commentaires"
-< echo "cest une phrase un peu #longue pour tester les commentaires"
-< echo "cest une phrase un #peu longue pour tester les commentaires"
-< echo "cest une phrase #un peu longue pour tester les commentaires"
-< echo "cest une #phrase un peu longue pour tester les commentaires"
-< echo "cest #une phrase un peu longue pour tester les commentaires"
-< echo "#cest une phrase un peu longue pour tester les commentaires"
-< echo cest une phrase un peu longue pour tester les
+>  
+122c122
+< 01 : 2 > 3 = faux
 ---
-> \2 \> \3 \= faux
-> \2 \> \3 \= faux
-> \2 \> \3 \= faux
-> \2 \> \3 \= faux
-> \2 \> \3 \= faux
-> bonjour les amis
-> bonjour les amis
-> bonjour les amis
-> bonjour les amis
-> bonjour les amis
-> bonjour les amis
+> 01 : \2 \> \3 \= faux
+126,129c126,129
+< 05 : \2 > \3 \= faux
+< 06 : \2 '\> \3 \=' faux
+< 07 : \2" \> \3" \= faux
+< 
+---
+> 05 : \2 \> \3 \= faux
+> 06 : \2 \> \3 \= faux
+> 07 : \2 \> \3 \= faux
+>  
+134,135d133
+< 'bonjour les amis'
+< "bonjour les amis"
+137,138d134
+< bonjour "les" amis
+< bonjour 'les' amis
+140a137,140
 > bonjour les amis
 > bonjour les amis
 > bonjour les amis
 > \bonjour \les \amis
-> \bonjour \les \amis
-> \bonjour \les \amis
+143c143
+< 
+---
+>  
+145,154d144
+< cest une phrase un peu longue pour tester les
+< cest une phrase un peu longue pour tester
+< cest une phrase un peu longue pour
+< cest une phrase un peu longue
+< cest une phrase un peu
+< cest une phrase un
+< cest une phrase
+< cest une
+< cest
+< 
+175c165,175
+< 
+---
 > cest une phrase un peu longue pour tester les #commentaires
 > cest une phrase un peu longue pour tester #les commentaires
 > cest une phrase un peu longue pour #tester les commentaires
@@ -184,32 +177,41 @@ ______________________________________________________________________
 > cest une #phrase un peu longue pour tester les commentaires
 > cest #une phrase un peu longue pour tester les commentaires
 > #cest une phrase un peu longue pour tester les commentaires
-> cest une phrase un peu longue pour tester les #commentaires
-> cest une phrase un peu longue pour tester #les commentaires
-> cest une phrase un peu longue pour #tester les commentaires
-> cest une phrase un peu longue #pour tester les commentaires
-> cest une phrase un peu #longue pour tester les commentaires
-> cest une phrase un #peu longue pour tester les commentaires
-> cest une phrase #un peu longue pour tester les commentaires
-> cest une #phrase un peu longue pour tester les commentaires
-> cest #une phrase un peu longue pour tester les commentaires
-> #cest une phrase un peu longue pour tester les commentaires
-> cest une phrase un peu longue pour tester les #commentaires
-120a159
-> \#\()*&*^%&\# \> o93 \ 3r-3 943j  tgerp ew3 rk[323w[q3&]]\ > file4
+>  
 ______________________________________________________________________
 			SORTIE ERREURS			
 ______________________________________________________________________
 1,3c1,5
 < bash: line 3: tests/readonly: Permission denied
-< bash: line 17: tests/readonly: Permission denied
+< bash: line 15: tests/readonly: Permission denied
 < bash: line 20: cd: forbidden: Permission denied
 ---
 > minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
 > minishell>> minishell: tests/all_access: Permission denied
-> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: parse error near ' >'
-> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: cd: Permission denied
-> minishell>> exit
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: cd: Permission denied
+> minishell>> minishell>> minishell>> minishell>> exit
 ______________________________________________________________________
 		COMPARAISONS DE FICHIERS		
 ______________________________________________________________________
+1,10c1,9
+< \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$
+< \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT^%&\# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w['q3&]]
+< #$\PWDOWE()\*&*TBYT^%&"\# \o93 \*o3 3r-3 943j tg"erp ew3\ rk%[323w\[q3&]]
+< \#$PWD_OWE*&*^%&\#  \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"
+< \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w0]$
+< /Users/lemarabe/Desktop/MC_minishell/frequent_tests clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file4 file5 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
+< \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k[\323w[q3&]]
+< #$PWDOWE()\*&*T$LS"BYT^%&" \# \o93  \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"
+< \#\$PWD_OWE()*&\*$TBYT^%&\#  \> o93 $HOMEo3  3r$POUIC-3 943j  tgerp e\w3 rk[323w[q3&]]\'
+< \#\OWE()*\&*TBYT^\%&\# o9\3 o3 \ME 3r-3 943j tgerp ew\>\>3 rk[323w0]$
+---
+> \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tgerp ew3 rk[323w[q3&]]$
+> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT^%&\# o93$\+ o3 3r-3 943j tgerp ew3@ r.k[323w[q3&]]
+> #$\PWDOWE()\*&*TBYT^%&\# \o93 \*o3 3r-3 943j tgerp ew3\ rk%[323w\[q3&]]
+> \#\$PWD_OWE*&*^%&\# \> o93 \$HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]\
+> \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w$[q3]]\$
+> /Users/lemarabe/Desktop/MC_minishell/frequent_tests * \* \# o93$ \#o3 3r-3 943j tgerp ew3 rk[323w[q3&]]$
+> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-3 \943j tgerp ew3@ r.k["\323w[q3&]]
+> \#$\PWDOWE()\*&*T"BYT^%&" \# \o93 \\*o3 3r-3 943j tgerp ew3\  rk%\|[323w\[q3&]]
+> \#\$PWD_OWE()*&\*^%&\# \> o93 \$HOMEo3  3r-3 943j tgerp e\w3 rk[323w[q3&]]\

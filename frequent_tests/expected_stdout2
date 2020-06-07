@@ -1,3 +1,4 @@
+TESTS SIMPLES AVEC ESPACES
 bonjour
 bonjour
 bonjour
@@ -9,87 +10,122 @@ bonjour
 bonjour
 --------;_________
 --------
-:
-$
-\
+
+METACARACTERES SANS QUOTES
+01 : :
+02 : $
+03 : \
+04 : \$
+05 : 
+06 : \#
+07 : */* 
+08 : **
+09 : clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
+10 : *
+11 : 
+12 : /Users/lemarabe
+13 : $HOME
+14 : $HOME
+15 : 
+16 : |
+17 : 18 : ^
+19 : ^
+20 : _
+21 : (
+22 : %
+23 : %
+
+METACARACTERES DOUBLES QUOTES
+01 : :
+02 : $
+03 : \
+04 : 
 \$
+05 : #
+06 : \#
+07 : */*"
+08 : *\*
+09 : *
+10 : \*
+11 : #
+12 : /Users/lemarabe
+13 : $HOME
+14 : $\HOME
+15 : 
+16 : \|
+17 : &
+18 : \^
+19 : ^
+20 : _
+21 : \(
+22 : %
+23 : \%
 
-\#
-*/*echo **
-"\3 \= faux" ' \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"' \3 clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file5 file6 file7 file8 file9 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 o93 tests
-*
+METACARACTERES SIMPLES QUOTES
+01 : :
+02 : \$
+03 : \\
+04 : \\$
+05 : #
+06 : \\#
+07 : */*\
+08 : *\*
+09 : *
+10 : \*
+11 : #
+12 : $HOME
+13 : \$HOME
+14 : $\HOME
+15 : $HOME_stuff
+16 : \|
+17 : &
+18 : \^
+19 : ^
+20 : _
+21 : \(
+22 : %
+23 : \%
 
-/Users/lemarabe
-$HOME
-$HOME
-
-|
-^
-^
-_
-(
-%
-%
-;;
-:
-$
-\
-\$
-#
-\#
-
-*/*"
-echo **
-echo *
-echo *
-echo #
-echo /Users/lemarabe
-echo $HOME
-echo $HOME
-echo 
-echo |
-echo 
+SIMPLE COTE COMME APOSTROPHE
+I'm Here
 Im Here
-echo \2 \> \3 \= faux
-echo 2 > 3 = faux
-echo "\2 \> \3 \= faux"
-echo "\2 \> \3" = faux
-echo 2 \> "\3 \= faux"
-echo "\2 > 3 = faux"
-echo 2 \> \3 = faux
-echo bonjour les amis
-echo "bonjour les amis"
-echo bonjour les amis
-echo "bonjour les amis"
-echo bonjour les amis
-echo "bonjour" les amis
-echo bonjour les amis
-echo "bonjour les amis"
-echo bonjour les "amis"
-echo \bonjour \les \amis
-echo "\bonjour \les \amis"
-echo bonjour les amis
-echo cest une phrase un peu longue pour tester les #commentaires
-echo cest une phrase un peu longue pour tester #les commentaires
-echo cest une phrase un peu longue pour #tester les commentaires
-echo cest une phrase un peu longue #pour tester les commentaires
-echo cest une phrase un peu #longue pour tester les commentaires
-echo cest une phrase un #peu longue pour tester les commentaires
-echo cest une phrase #un peu longue pour tester les commentaires
-echo cest une #phrase un peu longue pour tester les commentaires
-echo cest #une phrase un peu longue pour tester les commentaires
-echo #cest une phrase un peu longue pour tester les commentaires
-echo "cest une phrase un peu longue pour tester les #commentaires"
-echo "cest une phrase un peu longue pour tester #les commentaires"
-echo "cest une phrase un peu longue pour #tester les commentaires"
-echo "cest une phrase un peu longue #pour tester les commentaires"
-echo "cest une phrase un peu #longue pour tester les commentaires"
-echo "cest une phrase un #peu longue pour tester les commentaires"
-echo "cest une phrase #un peu longue pour tester les commentaires"
-echo "cest une #phrase un peu longue pour tester les commentaires"
-echo "cest #une phrase un peu longue pour tester les commentaires"
-echo "#cest une phrase un peu longue pour tester les commentaires"
-echo cest une phrase un peu longue pour tester les
+echo Im Here
+
+INHIBITION METACARACTERES
+01 : 2 > 3 = faux
+02 : \2 \> \3 \= faux
+03 : \2 \> \3 \= faux
+04 : \2 \> \3 \= faux
+05 : \2 > \3 \= faux
+06 : \2 '\> \3 \=' faux
+07 : \2" \> \3" \= faux
+
+QUOTES MELANGEES
+bonjour les amis
+bonjour les amis
+bonjour les amis
+'bonjour les amis'
+"bonjour les amis"
+bonjour les amis
+bonjour "les" amis
+bonjour 'les' amis
+bonjour les amis
+bonjour les amis
+\bonjour \les \amis
+\bonjour \les \amis
+
+COMMENTAIRES
+cest une phrase un peu longue pour tester les
+cest une phrase un peu longue pour tester
+cest une phrase un peu longue pour
+cest une phrase un peu longue
+cest une phrase un peu
+cest une phrase un
+cest une phrase
+cest une
+cest
+
+cest une phrase un peu longue pour tester les #commentaires
 cest une phrase un peu longue pour tester #les commentaires
 cest une phrase un peu longue pour #tester les commentaires
 cest une phrase un peu longue #pour tester les commentaires
@@ -99,3 +135,17 @@ cest une phrase #un peu longue pour tester les commentaires
 cest une #phrase un peu longue pour tester les commentaires
 cest #une phrase un peu longue pour tester les commentaires
 #cest une phrase un peu longue pour tester les commentaires
+cest une phrase un peu longue pour tester les #commentaires
+cest une phrase un peu longue pour tester #les commentaires
+cest une phrase un peu longue pour #tester les commentaires
+cest une phrase un peu longue #pour tester les commentaires
+cest une phrase un peu #longue pour tester les commentaires
+cest une phrase un #peu longue pour tester les commentaires
+cest une phrase #un peu longue pour tester les commentaires
+cest une #phrase un peu longue pour tester les commentaires
+cest #une phrase un peu longue pour tester les commentaires
+#cest une phrase un peu longue pour tester les commentaires
+
+DOUBLE POINT VIRGULE = EXIT
+;;
+;;

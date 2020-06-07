@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 15:52:23 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 15:54:10 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/07 20:46:04 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*return_free(char **str)
 
 int		simple_r(char *line, int i, char r)
 {
+	if (!is_meta(line, i))
+		return (0);
 	if (i > 0)
 	{
 		return (line[i] == r && line[i - 1] != r && ((line[i + 1] &&

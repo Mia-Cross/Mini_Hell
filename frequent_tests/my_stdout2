@@ -1,3 +1,4 @@
+TESTS SIMPLES AVEC ESPACES
 bonjour
 bonjour
 bonjour
@@ -9,126 +10,142 @@ bonjour
 bonjour
 --------;_________
 --------
-:
-\$
-\\
-\\$
-#
-\\#
-*/*\
-*\*
-*
-\*
-#
-/Users/lemarabe
-\/Users/lemarabe
-$\HOME
-
-\|
-&
-\^
-^
-_
-\(
-%
-\%
+ 
+METACARACTERES SANS QUOTES
+01 : :
+02 : \$
+03 : \\
+04 : \\$
+05 : #
+06 : \\#
+07 : */*\
+08 : *\*
+09 : *
+10 : \*
+11 : #
+12 : /Users/lemarabe
+13 : \$HOME
+14 : $\HOME
+15 : 
+16 : \|
+17 : &
+18 : \^
+19 : ^
+20 : _
+21 : \(
+22 : %
+23 : \%
+ 
+METACARACTERES DOUBLES QUOTES
+01 : :
+02 : \$
+03 : \\
+04 : \\$
+05 : #
+06 : \\#
+07 : */*\
+08 : *\*
+09 : *
+10 : \*
+11 : #
+12 : /Users/lemarabe
+13 : \$HOME
+14 : $\HOME
+15 : 
+16 : \|
+17 : &
+18 : \^
+19 : ^
+20 : _
+21 : \(
+22 : %
+23 : \%
+ 
+METACARACTERES SIMPLES QUOTES
+01 : :
+02 : \$
+03 : \\
+04 : \\$
+05 : #
+06 : \\#
+07 : */*\
+08 : *\*
+09 : *
+10 : \*
+11 : #
+12 : /Users/lemarabe
+13 : \$HOME
+14 : $\HOME
+15 : 
+16 : \|
+17 : &
+18 : \^
+19 : ^
+20 : _
+21 : \(
+22 : %
+23 : \%
+ 
+SIMPLE COTE COMME APOSTROPHE
+Im Here
+Im Here
+Im Here
+ 
+INHIBITION METACARACTERES
+01 : \2 \> \3 \= faux
+02 : \2 \> \3 \= faux
+03 : \2 \> \3 \= faux
+04 : \2 \> \3 \= faux
+05 : \2 \> \3 \= faux
+06 : \2 \> \3 \= faux
+07 : \2 \> \3 \= faux
+ 
+QUOTES MELANGEES
+bonjour les amis
+bonjour les amis
+bonjour les amis
+bonjour les amis
+bonjour les amis
+bonjour les amis
+bonjour les amis
+bonjour les amis
+bonjour les amis
+\bonjour \les \amis
+\bonjour \les \amis
+\bonjour \les \amis
+ 
+COMMENTAIRES
+cest une phrase un peu longue pour tester les #commentaires
+cest une phrase un peu longue pour tester #les commentaires
+cest une phrase un peu longue pour #tester les commentaires
+cest une phrase un peu longue #pour tester les commentaires
+cest une phrase un peu #longue pour tester les commentaires
+cest une phrase un #peu longue pour tester les commentaires
+cest une phrase #un peu longue pour tester les commentaires
+cest une #phrase un peu longue pour tester les commentaires
+cest #une phrase un peu longue pour tester les commentaires
+#cest une phrase un peu longue pour tester les commentaires
+cest une phrase un peu longue pour tester les #commentaires
+cest une phrase un peu longue pour tester #les commentaires
+cest une phrase un peu longue pour #tester les commentaires
+cest une phrase un peu longue #pour tester les commentaires
+cest une phrase un peu #longue pour tester les commentaires
+cest une phrase un #peu longue pour tester les commentaires
+cest une phrase #un peu longue pour tester les commentaires
+cest une #phrase un peu longue pour tester les commentaires
+cest #une phrase un peu longue pour tester les commentaires
+#cest une phrase un peu longue pour tester les commentaires
+cest une phrase un peu longue pour tester les #commentaires
+cest une phrase un peu longue pour tester #les commentaires
+cest une phrase un peu longue pour #tester les commentaires
+cest une phrase un peu longue #pour tester les commentaires
+cest une phrase un peu #longue pour tester les commentaires
+cest une phrase un #peu longue pour tester les commentaires
+cest une phrase #un peu longue pour tester les commentaires
+cest une #phrase un peu longue pour tester les commentaires
+cest #une phrase un peu longue pour tester les commentaires
+#cest une phrase un peu longue pour tester les commentaires
+ 
+DOUBLE POINT VIRGULE = EXIT
 ;;
-:
-\$
-\\
-\\$
-#
-\\#
-*/*\
-*\*
-*
-\*
-#
-/Users/lemarabe
-\/Users/lemarabe
-$\HOME
-
-\|
-&
-\^
-^
-_
-\(
-%
-\%
 ;;
-:
-\$
-\\
-\\$
-#
-\\#
-*/*\
-*\*
-*
-\*
-#
-\#
-/Users/lemarabe
-\/Users/lemarabe
-$\HOME
-
-\|
-\&
-&
-\^
-^
-\_
-\(
-%
-\%
-Im Here
-Im Here
-Im Here
-\2 \> \3 \= faux
-\2 \> \3 \= faux
-\2 \> \3 \= faux
-\2 \> \3 \= faux
-\2 \> \3 \= faux
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-\bonjour \les \amis
-\bonjour \les \amis
-\bonjour \les \amis
-cest une phrase un peu longue pour tester les #commentaires
-cest une phrase un peu longue pour tester #les commentaires
-cest une phrase un peu longue pour #tester les commentaires
-cest une phrase un peu longue #pour tester les commentaires
-cest une phrase un peu #longue pour tester les commentaires
-cest une phrase un #peu longue pour tester les commentaires
-cest une phrase #un peu longue pour tester les commentaires
-cest une #phrase un peu longue pour tester les commentaires
-cest #une phrase un peu longue pour tester les commentaires
-#cest une phrase un peu longue pour tester les commentaires
-cest une phrase un peu longue pour tester les #commentaires
-cest une phrase un peu longue pour tester #les commentaires
-cest une phrase un peu longue pour #tester les commentaires
-cest une phrase un peu longue #pour tester les commentaires
-cest une phrase un peu #longue pour tester les commentaires
-cest une phrase un #peu longue pour tester les commentaires
-cest une phrase #un peu longue pour tester les commentaires
-cest une #phrase un peu longue pour tester les commentaires
-cest #une phrase un peu longue pour tester les commentaires
-#cest une phrase un peu longue pour tester les commentaires
-cest une phrase un peu longue pour tester les #commentaires
-cest une phrase un peu longue pour tester #les commentaires
-cest une phrase un peu longue pour #tester les commentaires
-cest une phrase un peu longue #pour tester les commentaires
-cest une phrase un peu #longue pour tester les commentaires
-cest une phrase un #peu longue pour tester les commentaires
-cest une phrase #un peu longue pour tester les commentaires
-cest une #phrase un peu longue pour tester les commentaires
-cest #une phrase un peu longue pour tester les commentaires
-#cest une phrase un peu longue pour tester les commentaires
