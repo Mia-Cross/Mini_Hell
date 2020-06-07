@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove_single_quote.c                              :+:      :+:    :+:   */
+/*   env_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/27 13:02:24 by schene            #+#    #+#             */
-/*   Updated: 2020/06/06 15:35:01 by schene           ###   ########.fr       */
+/*   Created: 2020/06/07 15:22:06 by schene            #+#    #+#             */
+/*   Updated: 2020/06/07 15:23:57 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-char			*rm_quotes_env(char *var)
+char	*rm_quotes_env(char *var)
 {
 	char	*name;
 	char	*value;
@@ -37,4 +37,21 @@ char			*rm_quotes_env(char *var)
 		return (ret);
 	}
 	return (var);
+}
+
+char	*removeplus(char *str)
+{
+	char	*start;
+	char	*end;
+
+	end = ft_strchr(str, '+');
+	if (end == NULL)
+		return (str);
+	end = ft_substr(end, 1, ft_strlen(end - 1));
+	start = ft_substr(str, 0, ft_strlen(str) - ft_strlen(end) - 1);
+	free(str);
+	str = ft_strjoin(start, end);
+	free(start);
+	free(end);
+	return (str);
 }

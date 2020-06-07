@@ -1,32 +1,21 @@
 ______________________________________________________________________
 			SORTIE STANDARD			
 ______________________________________________________________________
-14c14
-< 
----
+0a1,2
+> THIS IS THE ONLY CONTENT. > tests/readonly
+> hello > tests/all_access
+12a15,17
 > #\/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
-16,17c16,18
-< #/Users/lemarabe/Desktop/MC_minishell/frequent_testsWE()*&*TBYT^%&# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w[q3&]]" ;
-< echo 02-3 ; echo #$\PWDOWE()\*&*TBYT^%&# \o93 \*o3 3r-3 943j tg"erp ew3\ rk%[323w\[q3&]]
----
 > \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE()*&*TBYT^%&# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w[q3&]]
-> 02-3
 > #$\PWDOWE()\*&*TBYT^%&# \o93 \*o3 3r-3 943j tgerp ew3\ rk%[323w\[q3&]]'
-19c20,27
-< 
+15c20
+< 1
 ---
-> 04
-> THIS IS THE ONLY CONTENT.
 > 0
-> THIS IS THE ONLY CONTENT.
-> 0
-> 05
-> 0
-> 06
-32,33d39
+32,33d36
 < $
 < \
-35,38c41,46
+35,38c38,43
 < 
 < \#
 < */*echo **
@@ -38,29 +27,29 @@ ______________________________________________________________________
 > \\#
 > */*\
 > *\*
-40c48,49
+40c45,46
 < 
 ---
 > \*
 > #
-42,43c51,52
+42,43c48,49
 < $HOME
 < $HOME
 ---
 > \/Users/lemarabe
 > $\HOME
-45,46c54,56
+45,46c51,53
 < |
 < ^
 ---
 > \|
 > &
 > \^
-49c59
+49c56
 < (
 ---
 > \(
-50a61,83
+50a58,80
 > \%
 > ;;
 > :
@@ -84,12 +73,12 @@ ______________________________________________________________________
 > ^
 > _
 > \(
-51a85
+51a82
 > \%
-54,55d87
+54,55d84
 < $
 < \
-56a89,96
+56a86,93
 > \\
 > \\$
 > #
@@ -98,11 +87,11 @@ ______________________________________________________________________
 > *\*
 > *
 > \*
-58a99,101
+58a96,98
 > /Users/lemarabe
 > \/Users/lemarabe
 > $\HOME
-60,70c103,113
+60,70c100,110
 < */*"
 < echo **
 < echo *
@@ -126,7 +115,7 @@ ______________________________________________________________________
 > \%
 > Im Here
 > Im Here
-72,111c115,152
+72,111c112,149
 < echo \2 \> \3 \= faux
 < echo 2 > 3 = faux
 < echo "\2 \> \3 \= faux"
@@ -206,20 +195,21 @@ ______________________________________________________________________
 > cest #une phrase un peu longue pour tester les commentaires
 > #cest une phrase un peu longue pour tester les commentaires
 > cest une phrase un peu longue pour tester les #commentaires
-120a162
-> \#\()*&*^%&\#  \> o93 \ 3r-3 943j  tgerp ew3 rk[323w[q3&]]\ > file4
+120a159
+> \#\()*&*^%&\# \> o93 \ 3r-3 943j  tgerp ew3 rk[323w[q3&]]\ > file4
 ______________________________________________________________________
 			SORTIE ERREURS			
 ______________________________________________________________________
-1,3c1,4
+1,3c1,5
 < bash: line 3: tests/readonly: Permission denied
-< bash: line 13: syntax error near unexpected token `('
-< bash: line 13: `echo 02-5 ; echo \#$PWD_\OWE()*\&*TBYT^\%&# o93 o3 $HOME 3r-3 943j tgerp ew\>\>3 rk[323w$[q3&]]\$ ;'
+< bash: line 17: tests/readonly: Permission denied
+< bash: line 20: cd: forbidden: Permission denied
 ---
 > minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
 > minishell>> minishell: tests/all_access: Permission denied
 > minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: parse error near ' >'
-> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> exit
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: cd: Permission denied
+> minishell>> exit
 ______________________________________________________________________
 		COMPARAISONS DE FICHIERS		
 ______________________________________________________________________

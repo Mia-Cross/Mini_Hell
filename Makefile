@@ -15,12 +15,15 @@ SRCS =	builtin.c \
 		split_cmd.c \
 		split_spaces.c \
 		split_quotes.c \
-		remove_single_quote.c \
 		redirection.c \
 		exec_cmd.c \
 		input_redirection.c \
 		redirection_utils.c \
-		fd_handling.c
+		fd_handling.c \
+		env_unset.c \
+		echo_str.c \
+		env_utils.c \
+		parse_error.c
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
