@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:21:34 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 20:47:36 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/07 18:35:08 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,19 @@ void	builtin_exit(t_data *data, int end)
 		status = get_status(data);
 	if (end || status != -1)
 	{
-/*		if (data->cmd)
+		if (data->cmd)
 			ft_free(data->cmd);
 		if (data->multi)
 			ft_free(data->multi);
 		if (data->line)
-			free(data->line); */
-		free_lst(data->env);
+			free(data->line);
+		if (data->env)
+			free_lst(data->env);
 		close_fd(data);
-		free(data->dir);
-		free(data);
+		if (data->dir)
+			free(data->dir);
+		if (data)
+			free(data);
 		exit(status);
 	}
 }

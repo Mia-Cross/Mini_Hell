@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:28:49 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 20:37:10 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/08 13:28:58 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int				double_r(char *line, int i);
 char			*return_free(char **str);
 int				fd_handling(t_data *data, int start);
 char			*rm_quotes_env(char *var);
-char			*echo_str(char *str, t_data *data, int m);
+char			*echo_str(char *str, t_data *data);
 int				len_variable(void *str);
 char			*removeplus(char *str);
 char			get_c_input(char *c, char str_i);

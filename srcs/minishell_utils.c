@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 16:11:37 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 21:53:08 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/08 17:22:56 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,59 @@ static char	*get_tmp(char *cmd, char *tmp)
 
 	i = -1;
 	j = -1;
+	//printf("-[%s]\n", cmd);
 	while (cmd[++i])
 	{
-		if (cmd[i] == '\'' || cmd[i] == '\"')
+		//printf("(%s)\n", &cmd[i]);
+		if ((cmd[i] == '\'' || cmd[i] == '\"'))
 		{
+			if (cmd[i+1] && cmd[i + 1] == cmd[i])
+			{
+				tmp[++j] = '\"';
+				tmp[++j] = '\"';
+			}
 			c = cmd[i];
 			while (cmd[++i])
 			{
-				if (cmd[i] == c)
+				if (cmd[i] == c /*&& cmd[i - 1] != '\\'*/)
 					break ;
-				tmp[++j] = cmd[i];
+				if (cmd[i] == '\\' && cmd[i + 1] && cmd[i + 1] == '$')
+					tmp[++j] = cmd[i];
+				else if (cmd[i])
+				{
+					if (cmd[i] == '\\')
+					{
+						if (cmd[i + 1] && cmd[i + 1] == '\"')
+							i++;
+						else
+							tmp[++j] = '\\';
+					}
+					if (cmd[i])
+						tmp[++j] = cmd[i];
+				}
+				else if (cmd[++i])
+					tmp[++j] = cmd[i];
 			}
 		}
-		else
-			tmp[++j] = cmd[i];
+		else if (cmd[i])
+		{
+			if (cmd[i] != '\\')
+				tmp[++j] = cmd[i];
+			else if (cmd[i + 1] && (cmd[i + 1] == '\\' || cmd[i + 1] == '$'))
+			{
+				tmp[++j] = cmd[i];
+				tmp[++j] = cmd[++i];
+			}
+			else if (cmd[++i])
+				tmp[++j] = cmd[i];
+			else
+				tmp[++j] = ' ';
+		}
+		if (!cmd[i])
+			break ;
 	}
 	tmp[++j] = '\0';
+	//printf("->[%s]\n", tmp);
 	return (tmp);
 }
 
@@ -43,7 +80,7 @@ char		*remove_quotes(char *cmd)
 {
 	char *tmp;
 
-	if (!(tmp = malloc(sizeof(char) * ft_strlen(cmd) + 1)))
+	if (!(tmp = malloc(sizeof(char) * ft_strlen(cmd) + 10)))
 		return (NULL);
 	get_tmp(cmd, tmp);
 	free(cmd);
@@ -63,7 +100,8 @@ void		ft_free(char **tab)
 		free(tab[i]);
 		tab[i] = NULL;
 	}
-	free(tab);
+	if (tab)
+		free(tab);
 	tab = NULL;
 }
 

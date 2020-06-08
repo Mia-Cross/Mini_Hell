@@ -6,29 +6,55 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 11:26:54 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 16:53:11 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/08 17:12:41 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static int		next_s(t_data *data, char *cmd, int m)
+static int		next_s(t_data *data, char *cmd)
 {
 	int		ret;
 	char	*str;
 
 	ret = 0;
-	str = echo_str(cmd, data, m);
+	str = echo_str(cmd, data);
 	if (str[0] && ft_strncmp(str, " ", ft_strlen(str) != 0))
 		ret++;
 	free(str);
 	return (ret);
 }
 
+static char		*remove_dq_in_echo(char *str)
+{
+	char	*ret;
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
+	if (!(ret = (char *)malloc(sizeof(char) * ft_strlen(str) + 1)))
+		return (NULL);
+	while (str[++i] && ft_isspace(str[i]))
+		ret[++j] = str[i];
+	i--;
+	while(str[++i])
+	{
+		if (str[i] == '\"' && str[i + 1] && str[i + 1] == '\"')
+			i++;
+		else
+			ret[++j] = str[i];
+	}
+	i--;
+	while (str[++i] && ft_isspace(str[i]))
+		ret[++j] = str[i];
+	ret[++j] = '\0';
+	return (ret);
+}	
+
 static void		fill_to_print(t_data *data, char **to_p, int i)
 {
 	int		j;
-	char	*str;
 	char	**tab;
 
 	*to_p = ft_strdup("\0");
@@ -37,11 +63,8 @@ static void		fill_to_print(t_data *data, char **to_p, int i)
 		tab = tab_of_quotes(data->cmd[i]);
 		j = -1;
 		while (tab[++j])
-		{
-			str = echo_str(tab[j], data, 0);
-			*to_p = clean_ft_strjoin(*to_p, str);
-		}
-		if (data->cmd[i + 1] && next_s(data, data->cmd[i + 1], 0) && *to_p[0])
+			*to_p = clean_ft_strjoin(*to_p, remove_dq_in_echo(tab[j]));
+		if (data->cmd[i + 1] && next_s(data, data->cmd[i + 1]) && *to_p[0])
 			*to_p = clean_ft_strjoin(*to_p, ft_strdup(" "));
 		ft_free(tab);
 	}
