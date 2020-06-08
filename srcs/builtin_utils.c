@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 17:27:33 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 16:38:41 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/08 20:23:14 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	close_fd(t_data *data)
 
 int			is_meta(char *str, int i)
 {
-	return (i == 0 || (str[i - 1] && str[i - 1] != '\\'));
+	return (i == 0 || (str[i - 1] && str[i - 1] != '\\' &&
+	between_quotes(str, i) != 1));
 }

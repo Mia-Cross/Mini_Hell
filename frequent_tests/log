@@ -1,183 +1,45 @@
 ______________________________________________________________________
 			SORTIE STANDARD			
 ______________________________________________________________________
-1,2c1,2
-< LS HOME AVEC VARIABLES D'ENV
-< 
+18c18
+< 1
 ---
-> LS HOME AVEC VARIABLES DENV
->  
-14c14
-< 
+> 13
+50c50
+< 09[NM]: clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
 ---
->  
-16c16
-< 
----
->  
-21c21
-< 
----
->  
-23c23
-< 
----
->  
-25c25
-< 
----
->  
-27c27
-< 
----
->  
-40c40
-< 
----
->  
-43,52c43,52
-< 02 : $
-< 03 : \
-< 04 : \$
-< 05 : 
-< 06 : \#
-< 07 : */* 
-< 08 : **
-< 09 : clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
-< 10 : *
-< 11 : 
----
-> 02 : \$
-> 03 : \\
-> 04 : \\$
-> 05 : #
-> 06 : \\#
-> 07 : */*\
-> 08 : *\*
-> 09 : *
-> 10 : \*
-> 11 : #
-54,55c54,55
-< 13 : $HOME
+> 09[NM]: *
+55c55
 < 14 : $HOME
 ---
-> 13 : \$HOME
-> 14 : $\HOME
-57,58c57,59
-< 16 : |
-< 17 : 18 : ^
+> 14 : /Users/lemarabe
+58c58,59
+< 17[NM]: 18 : ^
 ---
-> 16 : \|
-> 17 : &
-> 18 : \^
-61c62
-< 21 : (
----
-> 21 : \(
-63,64c64,65
-< 23 : %
-< 
----
-> 23 : \%
->  
-67,70c68,70
-< 02 : $
+> 17[NM]: &
+> 18 : ^
+68c69
 < 03 : \
-< 04 : 
-< \$
 ---
-> 02 : \$
-> 03 : \\
-> 04 : \\$
-72,73c72,73
+> 03 : \"
+70d70
+< 
+72c72
 < 06 : \#
-< 07 : */*"
 ---
 > 06 : \\#
-> 07 : */*\
-79c79
-< 13 : $HOME
+118c118
+< Im Here 
 ---
-> 13 : \$HOME
-90c90
-< 
+> I'm Here 
+139c139
+< bonjour les amis
 ---
->  
-103c103
-< 12 : $HOME
----
-> 12 : /Users/lemarabe
-106c106
-< 15 : $HOME_stuff
----
-> 15 : 
-115c115
-< 
----
->  
-117d116
-< I'm Here
-119,120c118,120
-< echo Im Here
-< 
----
-> Im Here
-> Im Here
->  
-122c122
-< 01 : 2 > 3 = faux
----
-> 01 : \2 \> \3 \= faux
-126,129c126,129
-< 05 : \2 > \3 \= faux
-< 06 : \2 '\> \3 \=' faux
-< 07 : \2" \> \3" \= faux
-< 
----
-> 05 : \2 \> \3 \= faux
-> 06 : \2 \> \3 \= faux
-> 07 : \2 \> \3 \= faux
->  
-134,135d133
-< 'bonjour les amis'
-< "bonjour les amis"
-137,138d134
-< bonjour "les" amis
-< bonjour 'les' amis
-140a137,140
-> bonjour les amis
-> bonjour les amis
-> bonjour les amis
-> \bonjour \les \amis
-143c143
-< 
----
->  
-145,154d144
-< cest une phrase un peu longue pour tester les
-< cest une phrase un peu longue pour tester
-< cest une phrase un peu longue pour
-< cest une phrase un peu longue
-< cest une phrase un peu
-< cest une phrase un
-< cest une phrase
-< cest une
-< cest
-< 
-175c165,175
-< 
----
-> cest une phrase un peu longue pour tester les #commentaires
-> cest une phrase un peu longue pour tester #les commentaires
-> cest une phrase un peu longue pour #tester les commentaires
-> cest une phrase un peu longue #pour tester les commentaires
-> cest une phrase un peu #longue pour tester les commentaires
-> cest une phrase un #peu longue pour tester les commentaires
-> cest une phrase #un peu longue pour tester les commentaires
-> cest une #phrase un peu longue pour tester les commentaires
-> cest #une phrase un peu longue pour tester les commentaires
-> #cest une phrase un peu longue pour tester les commentaires
->  
+> bonjour 'les amis
+178a179,181
+> \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$ > file1
+> /Users/lemarabe/Desktop/MC_minishell/frequent_tests * * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$> file6
+> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k[\323w[q3&]] > file7
 ______________________________________________________________________
 			SORTIE ERREURS			
 ______________________________________________________________________
@@ -194,10 +56,9 @@ ______________________________________________________________________
 ______________________________________________________________________
 		COMPARAISONS DE FICHIERS		
 ______________________________________________________________________
-1,10c1,9
+1d0
 < \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$
-< \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT^%&\# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w['q3&]]
-< #$\PWDOWE()\*&*TBYT^%&"\# \o93 \*o3 3r-3 943j tg"erp ew3\ rk%[323w\[q3&]]
+4,10c3,6
 < \#$PWD_OWE*&*^%&\#  \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"
 < \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w0]$
 < /Users/lemarabe/Desktop/MC_minishell/frequent_tests clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file4 file5 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
@@ -206,12 +67,7 @@ ______________________________________________________________________
 < \#\$PWD_OWE()*&\*$TBYT^%&\#  \> o93 $HOMEo3  3r$POUIC-3 943j  tgerp e\w3 rk[323w[q3&]]\'
 < \#\OWE()*\&*TBYT^\%&\# o9\3 o3 \ME 3r-3 943j tgerp ew\>\>3 rk[323w0]$
 ---
-> \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tgerp ew3 rk[323w[q3&]]$
-> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT^%&\# o93$\+ o3 3r-3 943j tgerp ew3@ r.k[323w[q3&]]
-> #$\PWDOWE()\*&*TBYT^%&\# \o93 \*o3 3r-3 943j tgerp ew3\ rk%[323w\[q3&]]
-> \#\$PWD_OWE*&*^%&\# \> o93 \$HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]\
-> \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w$[q3]]\$
-> /Users/lemarabe/Desktop/MC_minishell/frequent_tests * \* \# o93$ \#o3 3r-3 943j tgerp ew3 rk[323w[q3&]]$
-> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-3 \943j tgerp ew3@ r.k["\323w[q3&]]
-> \#$\PWDOWE()\*&*T"BYT^%&" \# \o93 \\*o3 3r-3 943j tgerp ew3\  rk%\|[323w\[q3&]]
-> \#\$PWD_OWE()*&\*^%&\# \> o93 \$HOMEo3  3r-3 943j tgerp e\w3 rk[323w[q3&]]\
+> \#$PWD_OWE*&*^%&\# \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"
+> \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w$[q3]]$
+> #()\*&*T"BYT^%&" \# \o93 \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"
+> \#\$PWD_OWE('')*&\*$TBYT^%&\# \> o93 $HOMEo3  3r$POUIC-3 943j tgerp e\w3 rk[323w[q3&]]\'

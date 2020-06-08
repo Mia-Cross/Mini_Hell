@@ -20,7 +20,7 @@ METACARACTERES SANS QUOTES
 06 : \#
 07 : */* 
 08 : **
-09 : clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
+09[NM]: clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
 10 : *
 11 : 
 12 : /Users/lemarabe
@@ -28,7 +28,7 @@ METACARACTERES SANS QUOTES
 14 : $HOME
 15 : 
 16 : |
-17 : 18 : ^
+17[NM]: 18 : ^
 19 : ^
 20 : _
 21 : (
@@ -39,8 +39,8 @@ METACARACTERES DOUBLES QUOTES
 01 : :
 02 : $
 03 : \
-04 : 
-\$
+04 : \$
+
 05 : #
 06 : \#
 07 : */*"
@@ -88,8 +88,8 @@ METACARACTERES SIMPLES QUOTES
 
 SIMPLE COTE COMME APOSTROPHE
 I'm Here
-Im Here
-echo Im Here
+Im Here 
+Im Here   
 
 INHIBITION METACARACTERES
 01 : 2 > 3 = faux

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 16:32:18 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/08 19:15:08 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ static t_data		*init_data(char **main_env)
 static void			exec_shell(t_data *data, char *line)
 {
 	int		i;
-	//char	*tmp;
+	int		com;
+	char	*tmp;
 
 	i = -1;
 	//tmp = echo_str(line, data);
@@ -68,7 +69,19 @@ static void			exec_shell(t_data *data, char *line)
 	{
 		while (data->multi[++i])
 		{
+			if ((com = contains_comment(data->multi[i])) && com != -1)
+			{
+				tmp = ft_substr(data->multi[i], 0, com);
+				data->multi[i] = tmp;
+		//		free(tmp);
+			}
 			data->line = ft_strtrim(data->multi[i], " \n\t");
+			// if ((com = contains_comment(data->line)) && com != -1)
+			// {
+			// 	tmp = ft_substr(data->line, 0, com);
+			// 	data->line = tmp;
+			// 	free(tmp);
+			// }
 			exec_line(data);
 			close_fd(data);
 		}

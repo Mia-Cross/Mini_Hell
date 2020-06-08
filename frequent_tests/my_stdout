@@ -1,5 +1,5 @@
-LS HOME AVEC VARIABLES DENV
- 
+LS HOME AVEC VARIABLES D'ENV
+
 42toolbox
 Applications
 Desktop
@@ -11,20 +11,20 @@ Movies
 Music
 Pictures
 goinfre
- 
+
 AJOUTER DU CONTENU A UN FICHIER INTERDIT
- 
+
 THIS IS THE ONLY CONTENT.
-1
+13
 THIS IS THE ONLY CONTENT.
 0
- 
+
 ACCEDER A UN DOSSIER INTERDIT
- 
+
 1
- 
+
 EXIT
- 
+
 TESTS SIMPLES AVEC ESPACES
 bonjour
 bonjour
@@ -37,46 +37,46 @@ bonjour
 bonjour
 --------;_________
 --------
- 
+
 METACARACTERES SANS QUOTES
 01 : :
-02 : \$
-03 : \\
-04 : \\$
-05 : #
-06 : \\#
-07 : */*\
-08 : *\*
-09 : *
-10 : \*
-11 : #
+02 : $
+03 : \
+04 : \$
+05 : 
+06 : \#
+07 : */* 
+08 : **
+09[NM]: *
+10 : *
+11 : 
 12 : /Users/lemarabe
-13 : \$HOME
-14 : $\HOME
+13 : $HOME
+14 : /Users/lemarabe
 15 : 
-16 : \|
-17 : &
-18 : \^
+16 : |
+17[NM]: &
+18 : ^
 19 : ^
 20 : _
-21 : \(
+21 : (
 22 : %
-23 : \%
- 
+23 : %
+
 METACARACTERES DOUBLES QUOTES
 01 : :
-02 : \$
-03 : \\
-04 : \\$
+02 : $
+03 : \"
+04 : \$
 05 : #
 06 : \\#
-07 : */*\
+07 : */*"
 08 : *\*
 09 : *
 10 : \*
 11 : #
 12 : /Users/lemarabe
-13 : \$HOME
+13 : $HOME
 14 : $\HOME
 15 : 
 16 : \|
@@ -87,7 +87,7 @@ METACARACTERES DOUBLES QUOTES
 21 : \(
 22 : %
 23 : \%
- 
+
 METACARACTERES SIMPLES QUOTES
 01 : :
 02 : \$
@@ -100,10 +100,10 @@ METACARACTERES SIMPLES QUOTES
 09 : *
 10 : \*
 11 : #
-12 : /Users/lemarabe
+12 : $HOME
 13 : \$HOME
 14 : $\HOME
-15 : 
+15 : $HOME_stuff
 16 : \|
 17 : &
 18 : \^
@@ -112,36 +112,46 @@ METACARACTERES SIMPLES QUOTES
 21 : \(
 22 : %
 23 : \%
- 
+
 SIMPLE COTE COMME APOSTROPHE
-Im Here
-Im Here
-Im Here
- 
+I'm Here
+I'm Here 
+Im Here   
+
 INHIBITION METACARACTERES
-01 : \2 \> \3 \= faux
+01 : 2 > 3 = faux
 02 : \2 \> \3 \= faux
 03 : \2 \> \3 \= faux
 04 : \2 \> \3 \= faux
-05 : \2 \> \3 \= faux
-06 : \2 \> \3 \= faux
-07 : \2 \> \3 \= faux
- 
+05 : \2 > \3 \= faux
+06 : \2 '\> \3 \=' faux
+07 : \2" \> \3" \= faux
+
 QUOTES MELANGEES
 bonjour les amis
 bonjour les amis
 bonjour les amis
+'bonjour les amis'
+"bonjour les amis"
 bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
-bonjour les amis
+bonjour "les" amis
+bonjour 'les' amis
+bonjour 'les amis
 bonjour les amis
 \bonjour \les \amis
 \bonjour \les \amis
-\bonjour \les \amis
- 
+
 COMMENTAIRES
+cest une phrase un peu longue pour tester les
+cest une phrase un peu longue pour tester
+cest une phrase un peu longue pour
+cest une phrase un peu longue
+cest une phrase un peu
+cest une phrase un
+cest une phrase
+cest une
+cest
+
 cest une phrase un peu longue pour tester les #commentaires
 cest une phrase un peu longue pour tester #les commentaires
 cest une phrase un peu longue pour #tester les commentaires
@@ -162,17 +172,10 @@ cest une phrase #un peu longue pour tester les commentaires
 cest une #phrase un peu longue pour tester les commentaires
 cest #une phrase un peu longue pour tester les commentaires
 #cest une phrase un peu longue pour tester les commentaires
-cest une phrase un peu longue pour tester les #commentaires
-cest une phrase un peu longue pour tester #les commentaires
-cest une phrase un peu longue pour #tester les commentaires
-cest une phrase un peu longue #pour tester les commentaires
-cest une phrase un peu #longue pour tester les commentaires
-cest une phrase un #peu longue pour tester les commentaires
-cest une phrase #un peu longue pour tester les commentaires
-cest une #phrase un peu longue pour tester les commentaires
-cest #une phrase un peu longue pour tester les commentaires
-#cest une phrase un peu longue pour tester les commentaires
- 
+
 DOUBLE POINT VIRGULE = EXIT
 ;;
 ;;
+\$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$ > file1
+/Users/lemarabe/Desktop/MC_minishell/frequent_tests * * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$> file6
+\#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k[\323w[q3&]] > file7

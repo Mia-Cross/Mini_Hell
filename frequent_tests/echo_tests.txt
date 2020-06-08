@@ -21,7 +21,7 @@ echo -n "05 : " ; echo #
 echo -n "06 : " ; echo \\#
 echo -n "07 : " ; echo */*\ ;
 echo -n "08 : " ; echo *\*
-echo -n "09 : " ; echo *
+echo -n "09[NM]: " ; echo *
 echo -n "10 : " ; echo \*
 echo -n "11 : " ; echo #
 echo -n "12 : " ; echo $HOME
@@ -29,7 +29,7 @@ echo -n "13 : " ; echo \$HOME
 echo -n "14 : " ; echo $\HOME
 echo -n "15 : " ; echo $HOME_stuff
 echo -n "16 : " ; echo \|
-echo -n "17 : " ; echo &
+echo -n "17[NM]: " ; echo &
 echo -n "18 : " ; echo \^
 echo -n "19 : " ; echo ^
 echo -n "20 : " ; echo _
@@ -92,8 +92,8 @@ echo -n "23 : " ; echo '\%'
 echo ""
 echo "SIMPLE COTE COMME APOSTROPHE"
 echo "I'm Here"
-echo 'I'm Here'
-echo I'm Here
+echo 'I'm Here' '
+echo I'm Here   '
 
 echo ""
 echo "INHIBITION METACARACTERES"
