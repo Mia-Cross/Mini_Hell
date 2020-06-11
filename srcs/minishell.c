@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/11 15:08:00 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/11 15:41:38 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,15 @@ static t_data		*init_data(char **main_env)
 	data->fd = NULL;
 	data->line = NULL;
 	data->multi = NULL;
-	data->pipe = NULL;
 	data->dir = ft_strdup(var_value(data->env, "$PWD"));
 	data->status = 0;
 	data->input = 0;
 	return (data);
 }
 
-void print_double_tab(char **tab)
-{
-	int i;
-
-	i = -1;
-	while (tab[++i] != NULL)
-	{
-		printf("tab[%d] = {%s}\n", i, tab[i]);
-	}
-}
-
 static void			exec_shell(t_data *data, char *line)
 {
 	int		i;
-	int		j;
 	int		com;
 	char	*tmp;
 
@@ -78,29 +65,21 @@ static void			exec_shell(t_data *data, char *line)
 		free(line);
 		line = tmp;
 	}
-	data->multi = split_quotes(line, data, ';');
+	if (line && parse_error(line))
+	{
+		data->status = 2;
+		return ;
+	}
+	data->multi = split_spaces(line, ";");
 	free(line);
 	line = NULL;
 	if (data->multi)
 	{
 		while (data->multi[++i])
 		{
-			data->pipe = split_quotes(data->multi[i], data, '|');
-			if (data->pipe)
-			{
-				print_double_tab(data->pipe);
-				j = -1;
-				while (data->pipe[++j])
-				{
-					printf("data->pipe[%d] = {%s}\n", j, data->pipe[j]);
-					data->line = ft_strtrim(data->pipe[j], " \n\t");
-					printf("data->line = {%s}\n", data->line);
-					exec_line(data);
-				}
-				ft_free(data->pipe);
-				data->pipe = NULL;
-				close_fd(data);
-			}
+			data->line = ft_strtrim(data->multi[i], " \n\t");
+			exec_line(data);
+			close_fd(data);
 		}
 		ft_free(data->multi);
 		data->multi = NULL;
@@ -135,4 +114,3 @@ int					main(int ac, char **av, char **env)
 	builtin_exit(data, 1);
 	return (0);
 }
-

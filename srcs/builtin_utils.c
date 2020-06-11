@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 17:27:33 by schene            #+#    #+#             */
-/*   Updated: 2020/06/11 14:58:58 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/09 16:12:42 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,10 @@ void	close_fd(t_data *data)
 	{
 		tmp = data->fd;
 		data->fd = data->fd->next;
-		printf("trying to close fd{%d}\t", *(int *)tmp->content);
 		close(*(int *)tmp->content);
-		printf("OK !\n");
-		printf("trying to free tmp->content %p\t", tmp->content);
 		free(tmp->content);
-		printf("OK !\n");
 		tmp->content = NULL;
-		printf("trying to free tmp %p\t", tmp);
 		free(tmp);
-		printf("OK !\n");
 		tmp = NULL;
 	}
 	data->fd = NULL;
