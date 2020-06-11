@@ -6,13 +6,13 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 16:16:32 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 16:24:24 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/11 12:44:39 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static int	word_count(char *s)
+static int	word_count(char *s, char sep)
 {
 	int		i;
 	char	c2;
@@ -22,15 +22,18 @@ static int	word_count(char *s)
 	count = 0;
 	while (s[++i])
 	{
-		while (s[i] && s[i] == ';')
+		while (s[i] && s[i] == sep)
 			i++;
-		if ((s[i] != ';' && i == 0) || (s[i] != ';' && s[i - 1] == ';'))
+		if ((s[i] != sep && i == 0) || (s[i] != sep && s[i - 1] == sep))
 			count++;
-		if (s[i] == '\'' || s[i] == '\"')
+		if ((s[i] == '\'' || s[i] == '\"') && is_meta(s, i))
 		{
 			c2 = s[i];
-			while (s[++i] && s[i] != c2)
-				;
+			while (s[++i])
+			{
+				if (s[i] == c2 && is_meta(s, i))
+					break ;
+			}
 		}
 		if (!s[i])
 			break ;
@@ -38,33 +41,35 @@ static int	word_count(char *s)
 	return (count);
 }
 
-static int	w_len(char *s, int i)
+static int	w_len(char *s, int i, int len, char sep)
 {
-	int		len;
 	char	c2;
 
-	len = 0;
 	while (s[i])
 	{
-		if (s[i] == '\'' || s[i] == '\"')
+		if ((s[i] == '\'' || s[i] == '\"') && is_meta(s, i))
 		{
 			c2 = s[i];
-			while (s[++i] && s[i] != c2)
+			while (s[++i])
+			{
+				if (s[i] == c2 && is_meta(s, i))
+					break ;
 				len++;
+			}
 			if (!s[i])
 				return (len + 1);
 			len += 2;
 		}
-		else if (s[i] != ';')
+		else if (s[i] != sep)
 			len++;
-		else if (i > 0 && s[i - 1] != ';')
+		else if (i > 0 && s[i - 1] != sep)
 			return (len);
 		i++;
 	}
 	return (len);
 }
 
-static int	fill_cmd(char **tab, char *tmp)
+static int	fill_cmd(char **tab, char *tmp, char sep)
 {
 	int i;
 	int j;
@@ -73,26 +78,25 @@ static int	fill_cmd(char **tab, char *tmp)
 
 	i = 0;
 	j = -1;
-	while (++j < word_count(tmp) && tmp[i])
+	while (++j < word_count(tmp, sep) && tmp[i])
 	{
-		len = w_len(tmp, i);
+		len = w_len(tmp, i, 0, sep);
 		if (!(tab[j] = (char *)malloc(sizeof(char) * (len + 1))))
 			return (0);
 		k = 0;
 		while (tmp[i] && k < len)
 			tab[j][k++] = tmp[i++];
 		tab[j][k] = 0;
-		if (tmp[i] && tmp[i] == ';')
+		if (tmp[i] && tmp[i + 1])
 			i++;
 	}
 	tab[j] = 0;
 	return (1);
 }
 
-char		**split_quotes(char *s, t_data *data)
+char		**split_quotes(char *s, t_data *data, char sep)
 {
 	char	**tab;
-	char	*tmp;
 
 	if (!s)
 		return (NULL);
@@ -101,11 +105,9 @@ char		**split_quotes(char *s, t_data *data)
 		data->status = 2;
 		return (NULL);
 	}
-	tmp = ft_strtrim(s, " ;");
-	if (!(tab = (char **)malloc(sizeof(char *) * (word_count(tmp) + 1))))
+	if (!(tab = (char **)malloc(sizeof(char *) * (word_count(s, sep) + 1))))
 		return (NULL);
-	if (fill_cmd(tab, tmp) == 0)
+	if (fill_cmd(tab, s, sep) == 0)
 		return (NULL);
-	free(tmp);
 	return (tab);
 }

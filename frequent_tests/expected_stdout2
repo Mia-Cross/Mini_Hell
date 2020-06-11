@@ -87,9 +87,9 @@ METACARACTERES SIMPLES QUOTES
 23 : \%
 
 SIMPLE COTE COMME APOSTROPHE
-I'm Here
-Im Here 
-Im Here   
+01 : I'm Here
+02 : Im Here 
+03 : Im Here   
 
 INHIBITION METACARACTERES
 01 : 2 > 3 = faux
@@ -101,18 +101,18 @@ INHIBITION METACARACTERES
 07 : \2" \> \3" \= faux
 
 QUOTES MELANGEES
-bonjour les amis
-bonjour les amis
-bonjour les amis
-'bonjour les amis'
-"bonjour les amis"
-bonjour les amis
-bonjour "les" amis
-bonjour 'les' amis
-bonjour les amis
-bonjour les amis
-\bonjour \les \amis
-\bonjour \les \amis
+01 : bonjour les amis
+02 : bonjour les amis
+03 : bonjour les amis
+04 : 'bonjour les amis'
+05 : "bonjour les amis"
+06 : bonjour les amis
+07 : bonjour "les" amis
+08 : bonjour 'les' amis
+09 : bonjour les amis
+10 : bonjour les amis
+11 : \bonjour \les \amis
+12 : \bonjour \les \amis
 
 COMMENTAIRES
 cest une phrase un peu longue pour tester les

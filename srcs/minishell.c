@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 19:15:08 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/11 15:08:00 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,44 +46,61 @@ static t_data		*init_data(char **main_env)
 	data->fd = NULL;
 	data->line = NULL;
 	data->multi = NULL;
+	data->pipe = NULL;
 	data->dir = ft_strdup(var_value(data->env, "$PWD"));
 	data->status = 0;
 	data->input = 0;
 	return (data);
 }
 
+void print_double_tab(char **tab)
+{
+	int i;
+
+	i = -1;
+	while (tab[++i] != NULL)
+	{
+		printf("tab[%d] = {%s}\n", i, tab[i]);
+	}
+}
+
 static void			exec_shell(t_data *data, char *line)
 {
 	int		i;
+	int		j;
 	int		com;
 	char	*tmp;
 
 	i = -1;
-	//tmp = echo_str(line, data);
-	data->multi = split_quotes(line, data);
-	//free(tmp);
-	//tmp = NULL;
+	if ((com = contains_comment(line)) && com != -1)
+	{
+		tmp = ft_substr(line, 0, com);
+		free(line);
+		line = tmp;
+	}
+	data->multi = split_quotes(line, data, ';');
 	free(line);
 	line = NULL;
 	if (data->multi)
 	{
 		while (data->multi[++i])
 		{
-			if ((com = contains_comment(data->multi[i])) && com != -1)
+			data->pipe = split_quotes(data->multi[i], data, '|');
+			if (data->pipe)
 			{
-				tmp = ft_substr(data->multi[i], 0, com);
-				data->multi[i] = tmp;
-		//		free(tmp);
+				print_double_tab(data->pipe);
+				j = -1;
+				while (data->pipe[++j])
+				{
+					printf("data->pipe[%d] = {%s}\n", j, data->pipe[j]);
+					data->line = ft_strtrim(data->pipe[j], " \n\t");
+					printf("data->line = {%s}\n", data->line);
+					exec_line(data);
+				}
+				ft_free(data->pipe);
+				data->pipe = NULL;
+				close_fd(data);
 			}
-			data->line = ft_strtrim(data->multi[i], " \n\t");
-			// if ((com = contains_comment(data->line)) && com != -1)
-			// {
-			// 	tmp = ft_substr(data->line, 0, com);
-			// 	data->line = tmp;
-			// 	free(tmp);
-			// }
-			exec_line(data);
-			close_fd(data);
 		}
 		ft_free(data->multi);
 		data->multi = NULL;
@@ -114,7 +131,8 @@ int					main(int ac, char **av, char **env)
 		ft_putstr_fd("minishell>> ", 2);
 	}
 	if (line)
-		free(line);
+		exec_shell(data, line);
 	builtin_exit(data, 1);
 	return (0);
 }
+

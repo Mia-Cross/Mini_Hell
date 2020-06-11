@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 15:52:23 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 13:05:19 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/09 16:36:52 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		simple_r(char *line, int i, char r)
 		return (0);
 	if (i > 0)
 	{
-		return (line[i] == r && line[i - 1] != r && ((line[i + 1] &&
-			line[i + 1] != r)));
+		return (line[i] == r && (line[i - 1] != r || !is_meta(line, i - 1))
+			&& ((line[i + 1] && line[i + 1] != r)));
 	}
 	return (line[i] == r && ((line[i + 1] && line[i + 1] != r)));
 }
@@ -44,4 +44,13 @@ char	get_c_input(char *c, char str_i)
 {
 	*c = str_i;
 	return (*c);
+}
+
+int		check_char_q(char *s, int i, char c)
+{
+	if (!s[i])
+		return (0);
+	if (s[i] == c && is_meta(s, i))
+		return (0);
+	return (1);
 }

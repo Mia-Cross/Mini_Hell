@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:28:49 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 19:45:23 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/11 14:30:54 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <errno.h>
 # include <string.h>
 # include <signal.h>
+# include <dirent.h>
 
 # define MAX_PATH 4096
 
@@ -32,6 +33,7 @@ typedef struct	s_data
 {
 	t_list		*env;
 	char		**multi;
+	char		**pipe;
 	char		*line;
 	char		**cmd;
 	int			status;
@@ -50,7 +52,7 @@ void			builtin_unset(t_data *data);
 void			builtin_exit(t_data *data, int end);
 void			builtin_echo(t_data *data);
 char			*var_value(t_list *env, char *var);
-char			**split_quotes(char *s, t_data *data);
+char			**split_quotes(char *s, t_data *data, char sep);
 char			**split_spaces(char *s, char const *charset);
 char			*remove_quotes(char *cmd);
 void			ft_free(char **tab);
@@ -74,7 +76,9 @@ char			*removeplus(char *str);
 char			get_c_input(char *c, char str_i);
 int				parse_error(char *s);
 int				is_meta(char *str, int i);
-int			contains_comment(char *str);
-int			between_quotes(char *str, int i);
+int				contains_comment(char *str);
+int				is_quotes(char *str, int i);
+int				check_char_q(char *s, int i, char c);
+int				try_path(char *path);
 
 #endif

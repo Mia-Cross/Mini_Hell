@@ -3,92 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minishell_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 16:11:37 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 20:04:24 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/10 14:21:29 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
-
-static char	*get_tmp(char *cmd, char *tmp)
-{
-	int		i;
-	int		j;
-	char	c;
-
-	i = -1;
-	j = -1;
-	//printf("-[%s]\n", cmd);
-	while (cmd[++i])
-	{
-		//printf("(%s)\n", &cmd[i]);
-		if ((cmd[i] == '\'' || cmd[i] == '\"'))
-		{
-			if (cmd[i+1] && cmd[i + 1] == cmd[i])
-			{
-				tmp[++j] = '\"';
-				tmp[++j] = '\"';
-			}
-			c = cmd[i];
-			while (cmd[++i])
-			{
-				if (cmd[i] == c /*&& cmd[i - 1] != '\\'*/)
-					break ;
-				if (cmd[i] == '\\' && cmd[i + 1] && cmd[i + 1] == '$')
-					tmp[++j] = cmd[i];
-				else if (cmd[i])
-				{
-					if (cmd[i] == '\\')
-					{
-						if (cmd[i + 1] && cmd[i + 1] == '\"')
-							i++;
-						else
-							tmp[++j] = '\\';
-					}
-					if (cmd[i])
-						tmp[++j] = cmd[i];
-				}
-				else if (cmd[++i])
-					tmp[++j] = cmd[i];
-			}
-		}
-		else if (cmd[i])
-		{
-			if (cmd[i] != '\\')
-				tmp[++j] = cmd[i];
-			else if (cmd[i + 1] && (cmd[i + 1] == '\\' || cmd[i + 1] == '$'))
-			{
-				tmp[++j] = cmd[i];
-				tmp[++j] = cmd[++i];
-			}
-			else if (cmd[++i])
-				tmp[++j] = cmd[i];
-			else
-				tmp[++j] = ' ';
-		}
-		if (!cmd[i])
-			break ;
-	}
-	tmp[++j] = '\0';
-	//printf("->[%s]\n", tmp);
-	return (tmp);
-}
-
-char		*remove_quotes(char *cmd)
-{
-	char *tmp;
-
-	if (!(tmp = malloc(sizeof(char) * ft_strlen(cmd) + 10)))
-		return (NULL);
-	get_tmp(cmd, tmp);
-	free(cmd);
-	cmd = ft_strdup(tmp);
-	free(tmp);
-	tmp = NULL;
-	return (cmd);
-}
 
 void		ft_free(char **tab)
 {
@@ -140,3 +62,24 @@ char		*var_value(t_list *env, char *var)
 	return (NULL);
 }
 
+int			try_path(char *path)
+{
+	DIR			*dir;
+	int			ret;
+	struct stat *buf;
+
+	if (!(buf = (struct stat *)malloc(sizeof(struct stat))))
+		return (-1);
+	ret = lstat(path, buf);
+	free(buf);
+	buf = NULL;
+	if (ret == 0)
+	{
+		if ((dir = opendir(path)) == NULL)
+			return (ret);
+		closedir(dir);
+		errno = 21;
+		return (-1);
+	}
+	return (ret);
+}

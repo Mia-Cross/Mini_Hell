@@ -6,23 +6,17 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 11:26:54 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 17:12:41 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/09 15:39:42 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static int		next_s(t_data *data, char *cmd)
+static int		next_s(char *cmd)
 {
-	int		ret;
-	char	*str;
-
-	ret = 0;
-	str = echo_str(cmd, data);
-	if (str[0] && ft_strncmp(str, " ", ft_strlen(str) != 0))
-		ret++;
-	free(str);
-	return (ret);
+	if (!cmd || !(cmd[0]) || (!cmd[1] && cmd[0] == ' '))
+		return (0);
+	return (1);
 }
 
 static char		*remove_dq_in_echo(char *str)
@@ -38,7 +32,7 @@ static char		*remove_dq_in_echo(char *str)
 	while (str[++i] && ft_isspace(str[i]))
 		ret[++j] = str[i];
 	i--;
-	while(str[++i])
+	while (str[++i])
 	{
 		if (str[i] == '\"' && str[i + 1] && str[i + 1] == '\"')
 			i++;
@@ -50,7 +44,7 @@ static char		*remove_dq_in_echo(char *str)
 		ret[++j] = str[i];
 	ret[++j] = '\0';
 	return (ret);
-}	
+}
 
 static void		fill_to_print(t_data *data, char **to_p, int i)
 {
@@ -64,7 +58,7 @@ static void		fill_to_print(t_data *data, char **to_p, int i)
 		j = -1;
 		while (tab[++j])
 			*to_p = clean_ft_strjoin(*to_p, remove_dq_in_echo(tab[j]));
-		if (data->cmd[i + 1] && next_s(data, data->cmd[i + 1]) && *to_p[0])
+		if (data->cmd[i + 1] && next_s(data->cmd[i + 1]) && *to_p[0])
 			*to_p = clean_ft_strjoin(*to_p, ft_strdup(" "));
 		ft_free(tab);
 	}

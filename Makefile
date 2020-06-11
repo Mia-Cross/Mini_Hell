@@ -23,8 +23,9 @@ SRCS =	builtin.c \
 		env_unset.c \
 		echo_str.c \
 		env_utils.c \
-		MC_functions.c \
-		parse_error.c
+		parse_error.c \
+		escape.c \
+		comments.c
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 
@@ -51,7 +52,7 @@ $(NAME) : $(OBJS) $(LIB)
 	@printf "[$(NAME)] "
 	clang $(CFLAGS) -o $(NAME) ${OBJS} $(LIB)
 	@echo Compiled $(NAME) successfully !
-	@echo $(NAME) >> .gitignore
+	@echo $(NAME) > .gitignore
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c | $(OBJDIR)
 	clang $(CFLAGS) -c $< -o $@

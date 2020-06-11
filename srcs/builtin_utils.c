@@ -6,7 +6,7 @@
 /*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 17:27:33 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 20:23:14 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/11 14:58:58 by lemarabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,22 @@ void	close_fd(t_data *data)
 	{
 		tmp = data->fd;
 		data->fd = data->fd->next;
+		printf("trying to close fd{%d}\t", *(int *)tmp->content);
 		close(*(int *)tmp->content);
+		printf("OK !\n");
+		printf("trying to free tmp->content %p\t", tmp->content);
 		free(tmp->content);
+		printf("OK !\n");
 		tmp->content = NULL;
+		printf("trying to free tmp %p\t", tmp);
 		free(tmp);
+		printf("OK !\n");
 		tmp = NULL;
 	}
 	data->fd = NULL;
 }
 
-int			is_meta(char *str, int i)
+int		is_quotes(char *str, int i)
 {
-	return (i == 0 || (str[i - 1] && str[i - 1] != '\\' &&
-	between_quotes(str, i) != 1));
+	return (str[i] && (str[i] == '\"' || str[i] == '\'') && is_meta(str, i));
 }

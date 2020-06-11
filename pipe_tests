@@ -1,0 +1,13 @@
+echo $PWD | ls		pipe
+echo '$PWD | ls'	ressort la string exacte
+echo "$PWD | ls"	ressort la string avec PWD interpreté
+
+echo $PWD|ls
+echo '$PWD|ls'
+echo "$PWD|ls"
+echo $PWD |ls
+echo '$PWD |ls'
+echo "$PWD |ls"
+echo $PWD| ls
+echo '$PWD| ls'
+echo "$PWD| ls"
