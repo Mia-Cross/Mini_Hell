@@ -8,9 +8,11 @@ echo "CD"
 echo ""
 cd ../frequent_tests
 ls
-cd ~/Bureau/MC_minishell/frequent_tests
+#cd ~/Bureau/MC_minishell/frequent_tests/
+cd ~/Desktop/MC_minishell/frequent_tests/
 ls
-cd /home/lilou/Bureau/MC_minishell/frequent_tests
+#cd /home/lilou/Bureau/MC_minishell/frequent_tests
+cd /Users/lemarabe/Desktop/MC_minishell/frequent_tests/
 ls
 echo ""
 echo " >> ENV <<"
@@ -28,25 +30,30 @@ env > tests/env
 export > tests/export
 pwd > tests/pwd
 echo "LS HOME AVEC VARIABLES D'ENV"
-echo ""
-export LS=ls ; $LS $HOME ; unset LS
-echo ""
+echo "1.0"
+export LS=ls ; $LS $HOME ; #unset LS
+echo "1.1"
 echo "AJOUTER DU CONTENU A UN FICHIER INTERDIT"
-echo ""
+echo "1.2"
+echo "1"
 export FILE_NAME=readonly
+echo "2"
 cat tests/$FILE_NAME
+echo "3"
 echo ajout >> tests/$FILE_NAME ; echo $?
+echo "4"
 cat tests/$FILE_NAME ; echo $?
+echo "5"
 echo ""
 echo "ACCEDER A UN DOSSIER INTERDIT"
-echo ""
+echo "6"
 cd forbidden ; echo $?
-echo ""
+echo "7"
 echo "ONLY EOF"
-echo ""
 echo -n > tests/eof_file
+echo "8"
 cat tests/eof_file
-echo ""
+echo "9"
 echo "EXIT"
-echo ""
+echo "10"
 exit
