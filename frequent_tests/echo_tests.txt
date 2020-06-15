@@ -45,7 +45,7 @@ echo -n "03 : " ; echo "\\"
 echo -n "04 : " ; echo "\\$"
 echo -n "05 : " ; echo "#"
 echo -n "06 : " ; echo "\\#"
-echo -n "07 : " ; echo "*/*\"" ;
+echo -n "07 : " ; echo "*/*\""
 echo -n "08 : " ; echo "*\*"
 echo -n "09 : " ; echo "*"
 echo -n "10 : " ; echo "\*"
@@ -91,9 +91,9 @@ echo -n "23 : " ; echo '\%'
 
 echo ""
 echo "SIMPLE COTE COMME APOSTROPHE"
-echo "I'm Here"
-echo 'I'm Here' '
-echo I'm Here   '
+echo -n "01 : " ; echo "I'm Here"
+echo -n "02 : " ; echo 'I'm Here' '
+echo -n "03 : " ; echo I'm Here   '
 
 echo ""
 echo "INHIBITION METACARACTERES"
@@ -107,18 +107,18 @@ echo -n "07 : " ; echo '\2" \> \3" \= faux'
 
 echo ""
 echo "QUOTES MELANGEES"
-echo bonjour les amis
-echo "bonjour les amis"
-echo 'bonjour les amis'
-echo "'bonjour les amis'"
-echo '"bonjour les amis"'
-echo "bonjour" 'les' amis
-echo 'bonjour "les" amis'
-echo "bonjour 'les' amis"
-echo 'bonjour 'les "amis"
-echo \bonjour \les \amis
-echo "\bonjour \les \amis"
-echo '\bonjour \les \amis'
+echo -n "01 : " ; echo bonjour les amis
+echo -n "02 : " ; echo "bonjour les amis"
+echo -n "03 : " ; echo 'bonjour les amis'
+echo -n "04 : " ; echo "'bonjour les amis'"
+echo -n "05 : " ; echo '"bonjour les amis"'
+echo -n "06 : " ; echo "bonjour" 'les' amis
+echo -n "07 : " ; echo 'bonjour "les" amis'
+echo -n "08 : " ; echo "bonjour 'les' amis"
+echo -n "09 : " ; echo 'bonjour 'les "amis"
+echo -n "10 : " ; echo \bonjour \les \amis
+echo -n "11 : " ; echo "\bonjour \les \amis"
+echo -n "12 : " ; echo '\bonjour \les \amis'
 
 echo ""
 echo "COMMENTAIRES"

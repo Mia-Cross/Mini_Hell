@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lemarabe <lemarabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 19:15:08 by lemarabe         ###   ########.fr       */
+/*   Updated: 2020/06/11 15:41:38 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,25 @@ static void			exec_shell(t_data *data, char *line)
 	char	*tmp;
 
 	i = -1;
-	//tmp = echo_str(line, data);
-	data->multi = split_quotes(line, data);
-	//free(tmp);
-	//tmp = NULL;
+	if ((com = contains_comment(line)) && com != -1)
+	{
+		tmp = ft_substr(line, 0, com);
+		free(line);
+		line = tmp;
+	}
+	if (line && parse_error(line))
+	{
+		data->status = 2;
+		return ;
+	}
+	data->multi = split_spaces(line, ";");
 	free(line);
 	line = NULL;
 	if (data->multi)
 	{
 		while (data->multi[++i])
 		{
-			if ((com = contains_comment(data->multi[i])) && com != -1)
-			{
-				tmp = ft_substr(data->multi[i], 0, com);
-				data->multi[i] = tmp;
-		//		free(tmp);
-			}
 			data->line = ft_strtrim(data->multi[i], " \n\t");
-			// if ((com = contains_comment(data->line)) && com != -1)
-			// {
-			// 	tmp = ft_substr(data->line, 0, com);
-			// 	data->line = tmp;
-			// 	free(tmp);
-			// }
 			exec_line(data);
 			close_fd(data);
 		}
@@ -114,7 +110,7 @@ int					main(int ac, char **av, char **env)
 		ft_putstr_fd("minishell>> ", 2);
 	}
 	if (line)
-		free(line);
+		exec_shell(data, line);
 	builtin_exit(data, 1);
 	return (0);
 }
