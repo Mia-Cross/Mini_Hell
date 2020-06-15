@@ -1,0 +1,14 @@
+env | grep bin
+export | grep x
+ls -ptUm
+git log --format="%H" -n5
+git ls-files -o -i --exclude-standard
+ifconfig | grep 'ether ' | cut -f2 | sed 's/ether //g' | tr -d ' '
+find . -name \* | wc -l | tr -d " "
+groups $FT_USER | sed -e 's/ /,/g' | tr -d '\n'
+find . -type f -name "*.sh" -exec basename {} \; | rev | cut -c4- | rev
+ls -l | sed 'n;d'
+cat | cat | cat | cat | cat
+cat | cat | cat | cat | cat tests/readonly
+cat | cat | cat | cat | cat tests/readonly > tests/fivecat
+

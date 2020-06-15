@@ -1,73 +1,516 @@
 ______________________________________________________________________
+			FREQUENT_TESTS			
 			SORTIE STANDARD			
 ______________________________________________________________________
-18c18
-< 1
+119d118
+< VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+120a120
+> VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+131,132d130
+< TERM=xterm-256color
+< SHELL=/bin/bash
+133a132,133
+> SHELL=/bin/bash
+> TERM=xterm-256color
+139a140
+> SHLVL=4
+141d141
+< SHLVL=5
+155c155
+< _=/usr/bin/env
 ---
-> 13
-50c50
-< 09[NM]: clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt
+> _=./minishell
+159,217c159,218
+< declare -x APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL="true"
+< declare -x CHROME_DESKTOP="code-url-handler.desktop"
+< declare -x CLUTTER_IM_MODULE="xim"
+< declare -x COLORTERM="truecolor"
+< declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+< declare -x DESKTOP_SESSION="ubuntu"
+< declare -x DISPLAY=":0"
+< declare -x GDMSESSION="ubuntu"
+< declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"
+< declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+< declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+< declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/d3344dd9_3c1d_4b1b_a8d8_2507f842d082"
+< declare -x GNOME_TERMINAL_SERVICE=":1.78"
+< declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+< declare -x GTK_IM_MODULE="ibus"
+< declare -x GTK_MODULES="gail:atk-bridge"
+< declare -x HOME="/home/lilou"
+< declare -x IM_CONFIG_PHASE="2"
+< declare -x LANG="fr_FR.UTF-8"
+< declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+< declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+< declare -x LOGNAME="lilou"
+< declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"
+< declare -x NO_AT_BRIDGE="1"
+< declare -x OLDPWD="/home/lilou/Bureau/MC_minishell/frequent_tests"
+< declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+< declare -x PWD="/home/lilou/Bureau/MC_minishell/frequent_tests"
+< declare -x QT4_IM_MODULE="xim"
+< declare -x QT_ACCESSIBILITY="1"
+< declare -x QT_IM_MODULE="ibus"
+< declare -x SESSION_MANAGER="local/lilou-hp:@/tmp/.ICE-unix/1899,unix/lilou-hp:/tmp/.ICE-unix/1899"
+< declare -x SHELL="/bin/bash"
+< declare -x SHLVL="5"
+< declare -x SSH_AGENT_PID="1994"
+< declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+< declare -x TERM="xterm-256color"
+< declare -x TERM_PROGRAM="vscode"
+< declare -x TERM_PROGRAM_VERSION="1.45.1"
+< declare -x TEXTDOMAIN="im-config"
+< declare -x TEXTDOMAINDIR="/usr/share/locale/"
+< declare -x USER="lilou"
+< declare -x USERNAME="lilou"
+< declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"
+< declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"
+< declare -x VSCODE_GIT_IPC_HANDLE="/run/user/1000/vscode-git-6375403599.sock"
+< declare -x VTE_VERSION="5202"
+< declare -x WINDOWPATH="1"
+< declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+< declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
+< declare -x XDG_CURRENT_DESKTOP="Unity"
+< declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+< declare -x XDG_MENU_PREFIX="gnome-"
+< declare -x XDG_RUNTIME_DIR="/run/user/1000"
+< declare -x XDG_SEAT="seat0"
+< declare -x XDG_SESSION_DESKTOP="ubuntu"
+< declare -x XDG_SESSION_ID="1"
+< declare -x XDG_SESSION_TYPE="x11"
+< declare -x XDG_VTNR="1"
+< declare -x XMODIFIERS="@im=ibus"
 ---
-> 09[NM]: *
-55c55
-< 14 : $HOME
----
-> 14 : /Users/lemarabe
-58c58,59
-< 17[NM]: 18 : ^
----
-> 17[NM]: &
-> 18 : ^
-68c69
-< 03 : \
----
-> 03 : \"
-70d70
-< 
-72c72
-< 06 : \#
----
-> 06 : \\#
-118c118
-< Im Here 
----
-> I'm Here 
-139c139
-< bonjour les amis
----
-> bonjour 'les amis
-178a179,181
-> \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$ > file1
-> /Users/lemarabe/Desktop/MC_minishell/frequent_tests * * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$> file6
-> \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k[\323w[q3&]] > file7
+> declare -x CLUTTER_IM_MODULE=xim
+> declare -x LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+> declare -x LESSCLOSE=/usr/bin/lesspipe %s %s
+> declare -x XDG_MENU_PREFIX=gnome-
+> declare -x LANG=fr_FR.UTF-8
+> declare -x DISPLAY=:0
+> declare -x OLDPWD=/home/lilou/Bureau/MC_minishell/frequent_tests
+> declare -x GNOME_SHELL_SESSION_MODE=ubuntu
+> declare -x COLORTERM=truecolor
+> declare -x USERNAME=lilou
+> declare -x CHROME_DESKTOP=code-url-handler.desktop
+> declare -x NO_AT_BRIDGE=1
+> declare -x XDG_VTNR=1
+> declare -x SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+> declare -x APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL=true
+> declare -x XDG_SESSION_ID=1
+> declare -x USER=lilou
+> declare -x DESKTOP_SESSION=ubuntu
+> declare -x QT4_IM_MODULE=xim
+> declare -x TEXTDOMAINDIR=/usr/share/locale/
+> declare -x GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/d3344dd9_3c1d_4b1b_a8d8_2507f842d082
+> declare -x PWD=/home/lilou/Bureau/MC_minishell/frequent_tests
+> declare -x HOME=/home/lilou
+> declare -x TEXTDOMAIN=im-config
+> declare -x VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+> declare -x SSH_AGENT_PID=1994
+> declare -x TERM_PROGRAM=vscode
+> declare -x TERM_PROGRAM_VERSION=1.45.1
+> declare -x QT_ACCESSIBILITY=1
+> declare -x XDG_SESSION_TYPE=x11
+> declare -x XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+> declare -x XDG_SESSION_DESKTOP=ubuntu
+> declare -x GTK_MODULES=gail:atk-bridge
+> declare -x VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+> declare -x WINDOWPATH=1
+> declare -x VTE_VERSION=5202
+> declare -x SHELL=/bin/bash
+> declare -x TERM=xterm-256color
+> declare -x QT_IM_MODULE=ibus
+> declare -x XMODIFIERS=@im=ibus
+> declare -x IM_CONFIG_PHASE=2
+> declare -x XDG_CURRENT_DESKTOP=Unity
+> declare -x GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+> declare -x GNOME_TERMINAL_SERVICE=:1.78
+> declare -x SHLVL=4
+> declare -x XDG_SEAT=seat0
+> declare -x VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-6375403599.sock
+> declare -x GDMSESSION=ubuntu
+> declare -x GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+> declare -x LOGNAME=lilou
+> declare -x DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+> declare -x GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+> declare -x XDG_RUNTIME_DIR=/run/user/1000
+> declare -x XAUTHORITY=/run/user/1000/gdm/Xauthority
+> declare -x XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+> declare -x PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+> declare -x SESSION_MANAGER=local/lilou-hp:@/tmp/.ICE-unix/1899,unix/lilou-hp:/tmp/.ICE-unix/1899
+> declare -x LESSOPEN=| /usr/bin/lesspipe %s
+> declare -x GTK_IM_MODULE=ibus
+> declare -x _=./minishell
 ______________________________________________________________________
 			SORTIE ERREURS			
 ______________________________________________________________________
 1,3c1,5
-< bash: line 3: tests/readonly: Permission denied
-< bash: line 15: tests/readonly: Permission denied
-< bash: line 20: cd: forbidden: Permission denied
+< bash: ligne 3: tests/readonly: Permission non accordée
+< bash: ligne 38: tests/readonly: Permission non accordée
+< bash: ligne 43 : cd: forbidden: Permission non accordée
 ---
-> minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
-> minishell>> minishell: tests/all_access: Permission denied
-> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: tests/readonly: Permission denied
 > minishell>> minishell>> minishell>> minishell>> minishell>> minishell: cd: Permission denied
+> minishell>> minishell>> minishell>> minishell>> minishell: tests/eof_file: Permission denied
+> minishell>> /bin/cat: tests/eof_file: Aucun fichier ou dossier de ce type
 > minishell>> minishell>> minishell>> minishell>> exit
+______________________________________________________________________
+				ECHO TESTS			
+			SORTIE STANDARD			
+______________________________________________________________________
+29c29
+< 16 : |
+---
+> 16 :  
+44c44
+< 07 : */*"
+---
+> 07 : */*
+89c89
+< 02 : Im Here 
+---
+> 02 : I Here 
+110c110
+< 09 : bonjour les amis
+---
+> 09 : bonjour  amis
+______________________________________________________________________
+			SORTIE ERREURS			
+______________________________________________________________________
+1,3c1,3
+< bash: ligne 12: _________ : commande introuvable
+< bash: ligne 158: erreur de syntaxe près du symbole inattendu « ;; »
+< bash: ligne 158: `echo ;;'
+---
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: _________: command not found
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell: parse error near ' ;'
+> minishell>> exit
+______________________________________________________________________
+			ECHO IN FILES			
+			SORTIE STANDARD			
+______________________________________________________________________
+______________________________________________________________________
+			SORTIE ERREURS			
+______________________________________________________________________
+0a1
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> exit
+______________________________________________________________________
+				PIPE TESTS			
+			SORTIE STANDARD			
+______________________________________________________________________
+2d1
+< _=/usr/bin/env
+6,64c5,64
+< declare -x APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL="true"
+< declare -x CHROME_DESKTOP="code-url-handler.desktop"
+< declare -x CLUTTER_IM_MODULE="xim"
+< declare -x COLORTERM="truecolor"
+< declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+< declare -x DESKTOP_SESSION="ubuntu"
+< declare -x DISPLAY=":0"
+< declare -x GDMSESSION="ubuntu"
+< declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"
+< declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"
+< declare -x GNOME_SHELL_SESSION_MODE="ubuntu"
+< declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/d3344dd9_3c1d_4b1b_a8d8_2507f842d082"
+< declare -x GNOME_TERMINAL_SERVICE=":1.78"
+< declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"
+< declare -x GTK_IM_MODULE="ibus"
+< declare -x GTK_MODULES="gail:atk-bridge"
+< declare -x HOME="/home/lilou"
+< declare -x IM_CONFIG_PHASE="2"
+< declare -x LANG="fr_FR.UTF-8"
+< declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+< declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+< declare -x LOGNAME="lilou"
+< declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"
+< declare -x NO_AT_BRIDGE="1"
+< declare -x OLDPWD="/home/lilou/Bureau/MC_minishell"
+< declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+< declare -x PWD="/home/lilou/Bureau/MC_minishell/frequent_tests"
+< declare -x QT4_IM_MODULE="xim"
+< declare -x QT_ACCESSIBILITY="1"
+< declare -x QT_IM_MODULE="ibus"
+< declare -x SESSION_MANAGER="local/lilou-hp:@/tmp/.ICE-unix/1899,unix/lilou-hp:/tmp/.ICE-unix/1899"
+< declare -x SHELL="/bin/bash"
+< declare -x SHLVL="5"
+< declare -x SSH_AGENT_PID="1994"
+< declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+< declare -x TERM="xterm-256color"
+< declare -x TERM_PROGRAM="vscode"
+< declare -x TERM_PROGRAM_VERSION="1.45.1"
+< declare -x TEXTDOMAIN="im-config"
+< declare -x TEXTDOMAINDIR="/usr/share/locale/"
+< declare -x USER="lilou"
+< declare -x USERNAME="lilou"
+< declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"
+< declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"
+< declare -x VSCODE_GIT_IPC_HANDLE="/run/user/1000/vscode-git-6375403599.sock"
+< declare -x VTE_VERSION="5202"
+< declare -x WINDOWPATH="1"
+< declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"
+< declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"
+< declare -x XDG_CURRENT_DESKTOP="Unity"
+< declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"
+< declare -x XDG_MENU_PREFIX="gnome-"
+< declare -x XDG_RUNTIME_DIR="/run/user/1000"
+< declare -x XDG_SEAT="seat0"
+< declare -x XDG_SESSION_DESKTOP="ubuntu"
+< declare -x XDG_SESSION_ID="1"
+< declare -x XDG_SESSION_TYPE="x11"
+< declare -x XDG_VTNR="1"
+< declare -x XMODIFIERS="@im=ibus"
+---
+> declare -x CLUTTER_IM_MODULE=xim
+> declare -x LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+> declare -x LESSCLOSE=/usr/bin/lesspipe %s %s
+> declare -x XDG_MENU_PREFIX=gnome-
+> declare -x LANG=fr_FR.UTF-8
+> declare -x DISPLAY=:0
+> declare -x OLDPWD=/home/lilou/Bureau/MC_minishell
+> declare -x GNOME_SHELL_SESSION_MODE=ubuntu
+> declare -x COLORTERM=truecolor
+> declare -x USERNAME=lilou
+> declare -x CHROME_DESKTOP=code-url-handler.desktop
+> declare -x NO_AT_BRIDGE=1
+> declare -x XDG_VTNR=1
+> declare -x SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+> declare -x APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL=true
+> declare -x XDG_SESSION_ID=1
+> declare -x USER=lilou
+> declare -x DESKTOP_SESSION=ubuntu
+> declare -x QT4_IM_MODULE=xim
+> declare -x TEXTDOMAINDIR=/usr/share/locale/
+> declare -x GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/d3344dd9_3c1d_4b1b_a8d8_2507f842d082
+> declare -x PWD=/home/lilou/Bureau/MC_minishell/frequent_tests
+> declare -x HOME=/home/lilou
+> declare -x TEXTDOMAIN=im-config
+> declare -x VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+> declare -x SSH_AGENT_PID=1994
+> declare -x TERM_PROGRAM=vscode
+> declare -x TERM_PROGRAM_VERSION=1.45.1
+> declare -x QT_ACCESSIBILITY=1
+> declare -x XDG_SESSION_TYPE=x11
+> declare -x XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+> declare -x XDG_SESSION_DESKTOP=ubuntu
+> declare -x GTK_MODULES=gail:atk-bridge
+> declare -x VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+> declare -x WINDOWPATH=1
+> declare -x VTE_VERSION=5202
+> declare -x SHELL=/bin/bash
+> declare -x TERM=xterm-256color
+> declare -x QT_IM_MODULE=ibus
+> declare -x XMODIFIERS=@im=ibus
+> declare -x IM_CONFIG_PHASE=2
+> declare -x XDG_CURRENT_DESKTOP=Unity
+> declare -x GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+> declare -x GNOME_TERMINAL_SERVICE=:1.78
+> declare -x SHLVL=4
+> declare -x XDG_SEAT=seat0
+> declare -x VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-6375403599.sock
+> declare -x GDMSESSION=ubuntu
+> declare -x GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+> declare -x LOGNAME=lilou
+> declare -x DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+> declare -x GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+> declare -x XDG_RUNTIME_DIR=/run/user/1000
+> declare -x XAUTHORITY=/run/user/1000/gdm/Xauthority
+> declare -x XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+> declare -x PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+> declare -x SESSION_MANAGER=local/lilou-hp:@/tmp/.ICE-unix/1899,unix/lilou-hp:/tmp/.ICE-unix/1899
+> declare -x LESSOPEN=| /usr/bin/lesspipe %s
+> declare -x GTK_IM_MODULE=ibus
+> declare -x _=./minishell
+79d78
+< tests/eof_file
+91d89
+< tests/fivecat
+96,98c94
+< 48
+< lilou,adm,cdrom,sudo,dip,plugdev,lpadmin,sambashareclean_dir
+< launch
+---
+> 46
+105c101
+< -rw-r--r-- 1 lilou lilou  8771 juin  15 02:12 files_with_bash
+---
+> -rw-r--r-- 1 lilou lilou  8771 juin  15 02:15 files_with_bash
+109,112c105,108
+< -rw-r--r-- 1 lilou lilou  1986 juin  15 02:12 my_errout2
+< -rw-r--r-- 1 lilou lilou   444 juin  15 02:12 my_errout4
+< -rw-r--r-- 1 lilou lilou  2839 juin  15 02:12 my_stdout2
+< -rw-r--r-- 1 lilou lilou  6105 juin  15 02:12 my_stdout4
+---
+> -rw-r--r-- 1 lilou lilou  1986 juin  15 02:15 my_errout2
+> -rw-r--r-- 1 lilou lilou   379 juin  15 02:15 my_errout4
+> -rw-r--r-- 1 lilou lilou  2839 juin  15 02:15 my_stdout2
+> -rw-r--r-- 1 lilou lilou  5182 juin  15 02:15 my_stdout4
+115,117c111
+< cat | cat | cat | cat | cat tests/readonly
+< cat | cat | cat | cat | cat tests/readonly > tests/fivecat
+< 
+---
+> THIS IS THE ONLY CONTENT.
+______________________________________________________________________
+			SORTIE ERREURS			
+______________________________________________________________________
+1,3c1,5
+< warning: impossible d'ouvrir le répertoire 'frequent_tests/forbidden/': Permission non accordée
+< find: ‘./forbidden’: Permission non accordée
+< find: ‘./forbidden’: Permission non accordée
+---
+> minishell>> minishell>> minishell>> minishell>> minishell>> warning: impossible d'ouvrir le répertoire 'frequent_tests/forbidden/': Permission non accordée
+> minishell>> minishell>> /usr/bin/find: ‘./forbidden’: Permission non accordée
+> minishell>> /usr/bin/groups: «» : utilisateur inexistant
+> minishell>> /usr/bin/find: paramètre manquant pour « -exec »
+> minishell>> minishell>> minishell>> minishell>> minishell>> minishell>> exit
 ______________________________________________________________________
 		COMPARAISONS DE FICHIERS		
 ______________________________________________________________________
-1d0
-< \$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3 r-3 943j tg'erp ew3 rk[323w[q3&]]$
-4,10c3,6
-< \#$PWD_OWE*&*^%&\#  \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"
-< \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w0]$
-< /Users/lemarabe/Desktop/MC_minishell/frequent_tests clean_dir.sh echo_in_files.txt echo_tests.txt expected_errout expected_errout2 expected_errout3 expected_stdout expected_stdout2 expected_stdout3 file1 file2 file3 file4 file5 files_with_bash files_with_minishell forbidden frequent_tests.txt launch.sh log minishell my_errout my_errout2 my_errout3 my_stdout my_stdout2 my_stdout3 tests very_simple.txt * \# o93$ \#o3 3r-3 943j tg'erp ew3 rk[323w[q3&]]$
-< \#/Users/lemarabe/Desktop/MC_minishell/frequent_tests\WE ()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k[\323w[q3&]]
-< #$PWDOWE()\*&*T$LS"BYT^%&" \# \o93  \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"
-< \#\$PWD_OWE()*&\*$TBYT^%&\#  \> o93 $HOMEo3  3r$POUIC-3 943j  tgerp e\w3 rk[323w[q3&]]\'
-< \#\OWE()*\&*TBYT^\%&\# o9\3 o3 \ME 3r-3 943j tgerp ew\>\>3 rk[323w0]$
+25d24
+< VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code$
+26a26
+> VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code$
+37,38d36
+< TERM=xterm-256color$
+< SHELL=/bin/bash$
+39a38,39
+> SHELL=/bin/bash$
+> TERM=xterm-256color$
+45a46
+> SHLVL=4$
+47d47
+< SHLVL=5$
+61,120c61,121
+< _=/usr/bin/env$
+< declare -x APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL="true"$
+< declare -x CHROME_DESKTOP="code-url-handler.desktop"$
+< declare -x CLUTTER_IM_MODULE="xim"$
+< declare -x COLORTERM="truecolor"$
+< declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"$
+< declare -x DESKTOP_SESSION="ubuntu"$
+< declare -x DISPLAY=":0"$
+< declare -x GDMSESSION="ubuntu"$
+< declare -x GIT_ASKPASS="/usr/share/code/resources/app/extensions/git/dist/askpass.sh"$
+< declare -x GNOME_DESKTOP_SESSION_ID="this-is-deprecated"$
+< declare -x GNOME_SHELL_SESSION_MODE="ubuntu"$
+< declare -x GNOME_TERMINAL_SCREEN="/org/gnome/Terminal/screen/d3344dd9_3c1d_4b1b_a8d8_2507f842d082"$
+< declare -x GNOME_TERMINAL_SERVICE=":1.78"$
+< declare -x GPG_AGENT_INFO="/run/user/1000/gnupg/S.gpg-agent:0:1"$
+< declare -x GTK_IM_MODULE="ibus"$
+< declare -x GTK_MODULES="gail:atk-bridge"$
+< declare -x HOME="/home/lilou"$
+< declare -x IM_CONFIG_PHASE="2"$
+< declare -x LANG="fr_FR.UTF-8"$
+< declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"$
+< declare -x LESSOPEN="| /usr/bin/lesspipe %s"$
+< declare -x LOGNAME="lilou"$
+< declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"$
+< declare -x NO_AT_BRIDGE="1"$
+< declare -x OLDPWD="/home/lilou/Bureau/MC_minishell/frequent_tests"$
+< declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"$
+< declare -x PWD="/home/lilou/Bureau/MC_minishell/frequent_tests"$
+< declare -x QT4_IM_MODULE="xim"$
+< declare -x QT_ACCESSIBILITY="1"$
+< declare -x QT_IM_MODULE="ibus"$
+< declare -x SESSION_MANAGER="local/lilou-hp:@/tmp/.ICE-unix/1899,unix/lilou-hp:/tmp/.ICE-unix/1899"$
+< declare -x SHELL="/bin/bash"$
+< declare -x SHLVL="5"$
+< declare -x SSH_AGENT_PID="1994"$
+< declare -x SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"$
+< declare -x TERM="xterm-256color"$
+< declare -x TERM_PROGRAM="vscode"$
+< declare -x TERM_PROGRAM_VERSION="1.45.1"$
+< declare -x TEXTDOMAIN="im-config"$
+< declare -x TEXTDOMAINDIR="/usr/share/locale/"$
+< declare -x USER="lilou"$
+< declare -x USERNAME="lilou"$
+< declare -x VSCODE_GIT_ASKPASS_MAIN="/usr/share/code/resources/app/extensions/git/dist/askpass-main.js"$
+< declare -x VSCODE_GIT_ASKPASS_NODE="/usr/share/code/code"$
+< declare -x VSCODE_GIT_IPC_HANDLE="/run/user/1000/vscode-git-6375403599.sock"$
+< declare -x VTE_VERSION="5202"$
+< declare -x WINDOWPATH="1"$
+< declare -x XAUTHORITY="/run/user/1000/gdm/Xauthority"$
+< declare -x XDG_CONFIG_DIRS="/etc/xdg/xdg-ubuntu:/etc/xdg"$
+< declare -x XDG_CURRENT_DESKTOP="Unity"$
+< declare -x XDG_DATA_DIRS="/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop"$
+< declare -x XDG_MENU_PREFIX="gnome-"$
+< declare -x XDG_RUNTIME_DIR="/run/user/1000"$
+< declare -x XDG_SEAT="seat0"$
+< declare -x XDG_SESSION_DESKTOP="ubuntu"$
+< declare -x XDG_SESSION_ID="1"$
+< declare -x XDG_SESSION_TYPE="x11"$
+< declare -x XDG_VTNR="1"$
+< declare -x XMODIFIERS="@im=ibus"$
 ---
-> \#$PWD_OWE*&*^%&\# \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"
-> \#\OWE()*\&*TBYT^\%&\# o93 o3 /Users/lemarabe 3r-3 943j tgerp ew\>\>3 rk[323w$[q3]]$
-> #()\*&*T"BYT^%&" \# \o93 \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"
-> \#\$PWD_OWE('')*&\*$TBYT^%&\# \> o93 $HOMEo3  3r$POUIC-3 943j tgerp e\w3 rk[323w[q3&]]\'
+> _=./minishell$
+> declare -x CLUTTER_IM_MODULE=xim$
+> declare -x LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:$
+> declare -x LESSCLOSE=/usr/bin/lesspipe %s %s$
+> declare -x XDG_MENU_PREFIX=gnome-$
+> declare -x LANG=fr_FR.UTF-8$
+> declare -x DISPLAY=:0$
+> declare -x OLDPWD=/home/lilou/Bureau/MC_minishell/frequent_tests$
+> declare -x GNOME_SHELL_SESSION_MODE=ubuntu$
+> declare -x COLORTERM=truecolor$
+> declare -x USERNAME=lilou$
+> declare -x CHROME_DESKTOP=code-url-handler.desktop$
+> declare -x NO_AT_BRIDGE=1$
+> declare -x XDG_VTNR=1$
+> declare -x SSH_AUTH_SOCK=/run/user/1000/keyring/ssh$
+> declare -x APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL=true$
+> declare -x XDG_SESSION_ID=1$
+> declare -x USER=lilou$
+> declare -x DESKTOP_SESSION=ubuntu$
+> declare -x QT4_IM_MODULE=xim$
+> declare -x TEXTDOMAINDIR=/usr/share/locale/$
+> declare -x GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/d3344dd9_3c1d_4b1b_a8d8_2507f842d082$
+> declare -x PWD=/home/lilou/Bureau/MC_minishell/frequent_tests$
+> declare -x HOME=/home/lilou$
+> declare -x TEXTDOMAIN=im-config$
+> declare -x VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code$
+> declare -x SSH_AGENT_PID=1994$
+> declare -x TERM_PROGRAM=vscode$
+> declare -x TERM_PROGRAM_VERSION=1.45.1$
+> declare -x QT_ACCESSIBILITY=1$
+> declare -x XDG_SESSION_TYPE=x11$
+> declare -x XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop$
+> declare -x XDG_SESSION_DESKTOP=ubuntu$
+> declare -x GTK_MODULES=gail:atk-bridge$
+> declare -x VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js$
+> declare -x WINDOWPATH=1$
+> declare -x VTE_VERSION=5202$
+> declare -x SHELL=/bin/bash$
+> declare -x TERM=xterm-256color$
+> declare -x QT_IM_MODULE=ibus$
+> declare -x XMODIFIERS=@im=ibus$
+> declare -x IM_CONFIG_PHASE=2$
+> declare -x XDG_CURRENT_DESKTOP=Unity$
+> declare -x GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1$
+> declare -x GNOME_TERMINAL_SERVICE=:1.78$
+> declare -x SHLVL=4$
+> declare -x XDG_SEAT=seat0$
+> declare -x VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-6375403599.sock$
+> declare -x GDMSESSION=ubuntu$
+> declare -x GNOME_DESKTOP_SESSION_ID=this-is-deprecated$
+> declare -x LOGNAME=lilou$
+> declare -x DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus$
+> declare -x GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh$
+> declare -x XDG_RUNTIME_DIR=/run/user/1000$
+> declare -x XAUTHORITY=/run/user/1000/gdm/Xauthority$
+> declare -x XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg$
+> declare -x PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin$
+> declare -x SESSION_MANAGER=local/lilou-hp:@/tmp/.ICE-unix/1899,unix/lilou-hp:/tmp/.ICE-unix/1899$
+> declare -x LESSOPEN=| /usr/bin/lesspipe %s$
+> declare -x GTK_IM_MODULE=ibus$
+> declare -x _=./minishell$
+125c126
+< \#$PWD_OWE*&*^%&\#  \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]"$
+---
+> \#$PWD_OWE*&*^%&\#  \> o93 $HOMEo3 3r-3 943j  tgerp ew3 rk[323w[q3&]]$
+129,130c130,131
+< #$PWDOWE()\*&*T$LS"BYT^%&" \# \o93  \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"$
+< \#\$PWD_OWE()*&\*$TBYT^%&\#  \> o93 $HOMEo3  3r$POUIC-3 943j  tgerp e\w3 rk[323w[q3&]]\'$
+---
+> #$PWDOWE()\*&*T"BYT^%&" \# \o93  \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"$
+> \#\$PWD_OWE(  \> o93 $HOMEo3  3r$POUIC-3 943j  tgerp e\w3 rk[323w[q3&]]\'$
