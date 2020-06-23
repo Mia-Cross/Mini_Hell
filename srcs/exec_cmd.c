@@ -6,21 +6,19 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 15:48:44 by schene            #+#    #+#             */
-/*   Updated: 2020/06/11 13:50:36 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/18 15:02:48 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static void		create_path(char **cmd, char *path)
+static void		create_path(char **cmd, char *path, int i)
 {
 	char		**p_tab;
 	char		*bin;
 	char		*tmp;
-	int			i;
 
 	p_tab = ft_split(path, ':');
-	i = -1;
 	while (p_tab[++i])
 	{
 		bin = ft_strjoin(p_tab[i], "/");
@@ -43,7 +41,6 @@ static void		exec_cmd(t_data *data, char **save)
 
 	free(*save);
 	g_child_pid = 0;
-	data->status = 0;
 	g_child_pid = fork();
 	if (g_child_pid == -1)
 		ft_putendl_fd(strerror(errno), 2);
@@ -58,33 +55,26 @@ static void		exec_cmd(t_data *data, char **save)
 		if (execve(data->cmd[0], data->cmd, tab_env) == -1)
 			ft_putendl_fd(strerror(errno), 2);
 		free(tab_env);
-		exit(EXIT_FAILURE);
+		exit(data->status);
 	}
 	if (data->status > 255)
 		data->status -= 255;
 	g_child_pid = 0;
 }
 
-static void		print_exec_error(char *cmd)
+static void		exec_path(t_data *data, char *path)
 {
-	ft_putstr_fd("minishell: ", 2);
-	ft_putstr_fd(cmd, 2);
-	ft_putstr_fd(": ", 2);
-	if (errno != 2)
-		ft_putendl_fd(strerror(errno), 2);
-	else
-		ft_putendl_fd("command not found", 2);
-}
-
-static void		exec_path(t_data *data)
-{
-	char	*path;
 	char	*save;
 
 	save = ft_strdup(data->cmd[0]);
-	path = ft_strdup(var_value(data->env, "$PATH"));
-	if (data->cmd[0][0] != '/' && (ft_strncmp(data->cmd[0], "./", 2) != 0))
-		create_path(data->cmd, path);
+	if (path == NULL)
+	{
+		free(data->cmd[0]);
+		data->cmd[0] = NULL;
+		errno = 2;
+	}
+	else if (data->cmd[0][0] != '/' && (ft_strncmp(data->cmd[0], "./", 2) != 0))
+		create_path(data->cmd, path, -1);
 	free(path);
 	path = NULL;
 	if (data->cmd[0] && try_path(data->cmd[0]) == 0)
@@ -114,18 +104,51 @@ void			exec_line(t_data *data)
 		data->cmd = split_spaces(data->line, " \n\t\v\r\f");
 		while (data->cmd[++i])
 		{
-			tmp = echo_str(data->cmd[i], data);
+			tmp = escape_str(data->cmd[i], data);
 			free(data->cmd[i]);
 			data->cmd[i] = tmp;
 		}
 		if (data->cmd[0] && is_builtin(data->cmd[0]))
 			exec_builtin(data);
 		else if (data->cmd[0])
-			exec_path(data);
+			exec_path(data, ft_strdup(var_value(data->env, "$PATH")));
 		ft_free(data->cmd);
 		data->cmd = NULL;
 	}
 	fd_handling(data, 0);
 	free(data->line);
 	data->line = NULL;
+}
+
+void			exec_shell(t_data *data, char *line)
+{
+	int		i;
+	char	*tmp;
+
+	i = -1;
+	tmp = contains_comment(line);
+	free(line);
+	line = tmp;
+	data->multi = split_spaces(line, ";");
+	free(line);
+	line = NULL;
+	tmp = NULL;
+	if (data->multi)
+	{
+		while (data->multi[++i])
+		{
+			data->pipe = split_spaces(data->multi[i], "|");
+			handle_pipe(data, i);
+			close_fd(data);
+			ft_free(data->pipe);
+			data->pipe = NULL;
+		}
+		ft_free(data->multi);
+		data->multi = NULL;
+	}
+	if (quit_shell)
+	{
+		printf("- sortez moi de la ! \n");
+		ctr_q(0);
+	}
 }

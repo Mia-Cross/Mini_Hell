@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/11 15:41:38 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/19 11:49:34 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,18 @@ static void			ctr_c(int num)
 		ft_putstr_fd("minishell>> ", 2);
 }
 
-static void			ctr_q(int num)
+static void			ctr_quit(int num)
 {
 	(void)num;
+
+	printf("j'ai appuye\n");
+	quit_shell = 1;
+}
+
+void			ctr_q(int num)
+{
+	(void)num;
+
 	if (g_child_pid > 0)
 	{
 		g_ctrl_q = 1;
@@ -35,55 +44,47 @@ static void			ctr_q(int num)
 	}
 }
 
-static t_data		*init_data(char **main_env)
+void				rm_save(char **line, char **save)
 {
-	t_data	*data;
-
-	if (!(data = (t_data *)malloc(sizeof(t_data))))
-		return (NULL);
-	data->env = create_env(main_env);
-	data->cmd = NULL;
-	data->fd = NULL;
-	data->line = NULL;
-	data->multi = NULL;
-	data->dir = ft_strdup(var_value(data->env, "$PWD"));
-	data->status = 0;
-	data->input = 0;
-	return (data);
-}
-
-static void			exec_shell(t_data *data, char *line)
-{
-	int		i;
-	int		com;
 	char	*tmp;
 
-	i = -1;
-	if ((com = contains_comment(line)) && com != -1)
+	if (g_ctrl_c && *save)
 	{
-		tmp = ft_substr(line, 0, com);
-		free(line);
-		line = tmp;
+		tmp = ft_substr(*line, ft_strlen(*save), ft_strlen(*line));
+		free(*line);
+		*line = tmp;
 	}
-	if (line && parse_error(line))
+	if (*save)
 	{
-		data->status = 2;
-		return ;
+		free(*save);
+		*save = NULL;
 	}
-	data->multi = split_spaces(line, ";");
-	free(line);
-	line = NULL;
-	if (data->multi)
+}
+
+void				get_user_input(t_data *data, char **line)
+{
+	char	*save;
+
+	save = NULL;
+	if (*line != NULL)
+		save = ft_strdup(*line);
+	while (get_next_line(STDIN_FILENO, line) > 0)
 	{
-		while (data->multi[++i])
-		{
-			data->line = ft_strtrim(data->multi[i], " \n\t");
-			exec_line(data);
-			close_fd(data);
-		}
-		ft_free(data->multi);
-		data->multi = NULL;
+		rm_save(line, &save);
+		save = NULL;
+		if (g_ctrl_c || g_ctrl_q)
+			data->status = 130 + g_ctrl_q;
+		g_ctrl_c = 0;
+		g_ctrl_q = 0;
+		if (parse_error(*line))
+			data->status = 2;
+		else
+			exec_shell(data, *line);
+		ft_putstr_fd("minishell>> ", 2);
 	}
+	rm_save(line, &save);
+	if (*line && **line != '\0')
+		get_user_input(data, line);
 }
 
 int					main(int ac, char **av, char **env)
@@ -93,24 +94,15 @@ int					main(int ac, char **av, char **env)
 
 	(void)ac;
 	(void)av;
-	g_ctrl_c = 0;
-	ft_putstr_fd("minishell>> ", 2);
+	quit_shell = 0;
 	signal(SIGINT, &ctr_c);
-	signal(SIGQUIT, &ctr_q);
+	signal(SIGQUIT, &ctr_quit);
+	ft_putstr_fd("minishell>> ", 2);
 	data = init_data(env);
-	while (get_next_line(0, &line) > 0)
-	{
-		if (g_ctrl_c)
-			data->status = 130;
-		if (g_ctrl_q)
-			data->status = 131;
-		g_ctrl_c = 0;
-		g_ctrl_q = 0;
-		exec_shell(data, line);
-		ft_putstr_fd("minishell>> ", 2);
-	}
+	line = NULL;
+	get_user_input(data, &line);
 	if (line)
-		exec_shell(data, line);
+		free(line);
 	builtin_exit(data, 1);
 	return (0);
 }

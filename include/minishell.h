@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 16:28:49 by schene            #+#    #+#             */
-/*   Updated: 2020/06/11 12:44:02 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/18 15:05:12 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@
 # include <dirent.h>
 
 # define MAX_PATH 4096
+# define RD_END 0
+# define WR_END 1
 
 pid_t g_child_pid;
+int		quit_shell;
 
 typedef struct	s_data
 {
@@ -35,8 +38,9 @@ typedef struct	s_data
 	char		**multi;
 	char		*line;
 	char		**cmd;
+	char		**pipe;
 	int			status;
-	t_list		*fd;
+	int			output;
 	int			input;
 	char		*dir;
 }				t_data;
@@ -51,9 +55,7 @@ void			builtin_unset(t_data *data);
 void			builtin_exit(t_data *data, int end);
 void			builtin_echo(t_data *data);
 char			*var_value(t_list *env, char *var);
-char			**split_quotes(char *s, t_data *data, char sep);
 char			**split_spaces(char *s, char const *charset);
-char			*remove_quotes(char *cmd);
 void			ft_free(char **tab);
 void			free_lst(t_list *lst);
 void			close_fd(t_data *data);
@@ -68,16 +70,22 @@ int				simple_r(char *line, int i, char r);
 int				double_r(char *line, int i);
 char			*return_free(char **str);
 int				fd_handling(t_data *data, int start);
-char			*rm_quotes_env(char *var);
-char			*echo_str(char *str, t_data *data);
 int				len_variable(void *str);
 char			*removeplus(char *str);
 char			get_c_input(char *c, char str_i);
 int				parse_error(char *s);
 int				is_meta(char *str, int i);
-int				contains_comment(char *str);
+char			*contains_comment(char *str);
 int				is_quotes(char *str, int i);
 int				check_char_q(char *s, int i, char c);
 int				try_path(char *path);
+void			handle_pipe(t_data *data, int i);
+void			print_export(t_data *data);
+int				replace_ifexist(t_list *env, char *str);
+char			*escape_str(char *str, t_data *data);
+t_data			*init_data(char **main_env);
+void			exec_shell(t_data *data, char *line);
+void			print_exec_error(char *cmd);
+void			ctr_q(int num);
 
 #endif

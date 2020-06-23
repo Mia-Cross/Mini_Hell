@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 11:26:54 by schene            #+#    #+#             */
-/*   Updated: 2020/06/09 15:39:42 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/18 17:47:48 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		next_s(char *cmd)
 {
-	if (!cmd || !(cmd[0]) || (!cmd[1] && cmd[0] == ' '))
+	if (!cmd || !(cmd[0]))
 		return (0);
 	return (1);
 }
@@ -27,6 +27,8 @@ static char		*remove_dq_in_echo(char *str)
 
 	i = -1;
 	j = -1;
+	if (str[0] == ' ' && !str[1])
+		return (ft_strdup("\0"));
 	if (!(ret = (char *)malloc(sizeof(char) * ft_strlen(str) + 1)))
 		return (NULL);
 	while (str[++i] && ft_isspace(str[i]))
@@ -58,7 +60,7 @@ static void		fill_to_print(t_data *data, char **to_p, int i)
 		j = -1;
 		while (tab[++j])
 			*to_p = clean_ft_strjoin(*to_p, remove_dq_in_echo(tab[j]));
-		if (data->cmd[i + 1] && next_s(data->cmd[i + 1]) && *to_p[0])
+		if (data->cmd[i + 1] && next_s(data->cmd[i + 1]) && data->cmd[i][0])
 			*to_p = clean_ft_strjoin(*to_p, ft_strdup(" "));
 		ft_free(tab);
 	}
@@ -76,7 +78,7 @@ void			builtin_echo(t_data *data)
 	{
 		n = 1;
 		i = 1;
-		while (ft_strncmp(data->cmd[i], "-n", 3) == 0)
+		while (data->cmd[i] && ft_strncmp(data->cmd[i], "-n", 3) == 0)
 			i++;
 		i--;
 	}

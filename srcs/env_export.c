@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 15:30:08 by schene            #+#    #+#             */
-/*   Updated: 2020/06/07 18:15:18 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/15 13:16:46 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static int			error_name(char **str, char **name, t_data *data)
 {
+	ft_putstr_fd("minishell: export: \"", 2);
+	ft_putstr_fd(*name, 2);
+	ft_putendl_fd("\" : not an identifier", 2);
 	free(*str);
 	free(*name);
 	data->status = 1;
@@ -27,7 +30,7 @@ static int			check_var_name(char **str, t_data *data)
 
 	name = ft_substr(*str, 0,
 		(ft_strlen(*str) - ft_strlen(ft_strchr(*str, '='))));
-	if (!name[0])
+	if (!name[0] || ft_isdigit(name[0]))
 		return (error_name(str, &name, data));
 	i = -1;
 	while (name[++i])
@@ -40,8 +43,6 @@ static int			check_var_name(char **str, t_data *data)
 				return (1);
 			}
 			data->status = 1;
-			ft_putstr_fd("minishell: export: invalid variable name: ", 2);
-			ft_putendl_fd(name, 2);
 			return (error_name(str, &name, data));
 		}
 	}
@@ -60,7 +61,7 @@ static void			append_var(char **str, t_list *env, int i)
 	*str = tmp;
 }
 
-static int			replace_ifexist(t_list *env, char *str)
+int					replace_ifexist(t_list *env, char *str)
 {
 	int		i;
 	int		len;
@@ -94,22 +95,19 @@ void				builtin_export(t_data *data)
 
 	data->status = 0;
 	if (data->cmd[1] == NULL)
-		print_env(data);
+		print_export(data);
 	i = 0;
 	while (data->cmd[++i])
 	{
-		if (ft_strchr(data->cmd[i], '=') != NULL)
+		str = ft_strdup(data->cmd[i]);
+		if (check_var_name(&str, data) == -1)
+			break ;
+		if ((ret = replace_ifexist(data->env, str)) == 0)
 		{
-			str = rm_quotes_env(ft_strdup(data->cmd[i]));
-			if (check_var_name(&str, data) == -1)
-				break ;
-			if ((ret = replace_ifexist(data->env, str)) == 0)
-			{
-				new = ft_lstnew(removeplus(str));
-				ft_lstadd_back(&data->env, new);
-			}
-			else if (ret == -1)
-				ft_putendl_fd(strerror(errno), 2);
+			new = ft_lstnew(removeplus(str));
+			ft_lstadd_back(&data->env, new);
 		}
+		else if (ret == -1)
+			ft_putendl_fd(strerror(errno), 2);
 	}
 }

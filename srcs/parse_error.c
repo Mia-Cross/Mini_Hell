@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 15:46:45 by schene            #+#    #+#             */
-/*   Updated: 2020/06/11 12:40:48 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/19 11:49:15 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static int		check_exception(char *s, int i)
 	char	c;
 
 	c = s[i];
-	if ((c == ';' && is_meta(s, i + 1) && (simple_r(s, i + 1, '>') ||
-		simple_r(s, i + 1, '<'))) || double_r(s, i))
-		i += 2;
-	else if (c == ';' && double_r(s, i + 1) && is_meta(s, i + 1))
-		i += 3;
-	else if (simple_r(s, i, '>') || simple_r(s, i, '<'))
+	if ((c == ';' && is_meta(s, i + 1)) && ((simple_r(s, i + 1, '>') ||
+		simple_r(s, i + 1, '<')) || double_r(s, i)))
 		i += 1;
+	else if (c == ';' && (double_r(s, i + 1) && is_meta(s, i + 1)))
+		i += 2;
+	else if (simple_r(s, i, '>') || simple_r(s, i, '<'))
+		;
 	while (s[++i] && ft_isspace(s[i]))
 		;
 	return (i);

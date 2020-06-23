@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 16:11:37 by schene            #+#    #+#             */
-/*   Updated: 2020/06/10 14:21:29 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/18 15:01:26 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,48 +38,11 @@ char		*clean_ft_strjoin(char *s1, char *s2)
 	return (s1);
 }
 
-char		*var_value(t_list *env, char *var)
+int			is_meta(char *str, int i)
 {
-	char	*name;
-	int		len;
-	int		len2;
-
-	name = &var[1];
-	len2 = 0;
-	while (ft_isalnum(name[len2]) || name[len2] == '_')
-		len2++;
-	while (env)
-	{
-		len = (ft_strlen(env->content) -
-			ft_strlen(ft_strchr(env->content, '=')));
-		len = len2 > len ? len2 : len;
-		if (ft_strncmp(env->content, name, len) == 0)
-			return (ft_strchr(env->content, '=') + 1);
-		env = env->next;
-	}
-	if (ft_isdigit(name[0]) && name[1])
-		return (&name[1]);
-	return (NULL);
-}
-
-int			try_path(char *path)
-{
-	DIR			*dir;
-	int			ret;
-	struct stat *buf;
-
-	if (!(buf = (struct stat *)malloc(sizeof(struct stat))))
-		return (-1);
-	ret = lstat(path, buf);
-	free(buf);
-	buf = NULL;
-	if (ret == 0)
-	{
-		if ((dir = opendir(path)) == NULL)
-			return (ret);
-		closedir(dir);
-		errno = 21;
-		return (-1);
-	}
-	return (ret);
+	if (i == 0)
+		return (1);
+	if (str[i - 1] && str[i - 1] == '\\')
+		return (str[i - 2] && str[i - 2] == '\\');
+	return (str[i - 1] && str[i - 1] != '\\');
 }

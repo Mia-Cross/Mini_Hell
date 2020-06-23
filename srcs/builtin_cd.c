@@ -6,31 +6,42 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 15:40:08 by schene            #+#    #+#             */
-/*   Updated: 2020/06/08 13:28:58 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/18 18:24:04 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
+static void		add_old_pwd(char *str, t_list *env)
+{
+	t_list	*new;
+
+	new = ft_lstnew(str);
+	ft_lstadd_back(&env, new);
+}
+
 static int		change_value(t_list *env, char *name, char *newvalue)
 {
 	char	*tmp;
+	t_list	*ptr;
 	char	*new;
 
 	tmp = ft_strjoin(name, "=");
 	new = ft_strjoin(tmp, newvalue);
 	free(tmp);
-	while (env->next)
+	ptr = env;
+	while (ptr)
 	{
-		if (ft_strncmp(env->content, name, ft_strlen(name)) == 0)
+		if (ft_strncmp(ptr->content, name, ft_strlen(name)) == 0)
 		{
-			free(env->content);
-			env->content = new;
+			free(ptr->content);
+			ptr->content = new;
 			return (1);
 		}
-		env = env->next;
+		ptr = ptr->next;
 	}
-	return (0);
+	add_old_pwd(new, env);
+	return (1);
 }
 
 static void		cd_from_rm(t_data *data)
@@ -57,11 +68,11 @@ static void		change_dir(t_data *data, char *path)
 	if (getcwd(old_pwd, MAX_PATH) == NULL &&
 		data->cmd[1][0] == '.' && !data->cmd[1][1])
 		return (cd_from_rm(data));
-	buf = (struct stat *)malloc(sizeof(struct stat));
+	if (!(buf = (struct stat *)malloc(sizeof(struct stat))))
+		return ;
 	if (lstat(path, buf) == 0 && chdir(path) == 0)
 	{
 		getcwd(pwd, MAX_PATH);
-		getcwd(old_pwd, MAX_PATH);
 		change_value(data->env, "PWD", pwd);
 		free(data->dir);
 		data->dir = ft_strdup(pwd);
@@ -93,7 +104,7 @@ void			builtin_cd(t_data *data)
 	}
 	else
 	{
-		str = echo_str(data->cmd[1], data);
+		str = ft_strdup(data->cmd[1]);
 		if (str[0] == '~')
 		{
 			tmp = ft_strjoin(var_value(data->env, "$HOME"), &str[1]);
