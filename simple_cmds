@@ -1,5 +1,0 @@
-echo $HOME | ls
-printenv | grep bin > file
-echo -n "CAT = "
-cat file | cat file | cat file
-echo ""
