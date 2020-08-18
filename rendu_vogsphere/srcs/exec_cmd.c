@@ -146,9 +146,4 @@ void			exec_shell(t_data *data, char *line)
 		ft_free(data->multi);
 		data->multi = NULL;
 	}
-	if (quit_shell)
-	{
-		printf("- sortez moi de la ! \n");
-		ctr_q(0);
-	}
 }

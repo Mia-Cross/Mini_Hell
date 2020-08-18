@@ -1,0 +1,158 @@
+echo "TESTS SIMPLES AVEC ESPACES"
+echo bonjour
+echo        bonjour
+echo "bonjour"
+echo "            bonjour"
+echo "      bonjour   "
+echo 'bonjour'
+echo '            bonjour'
+echo '      bonjour   '
+echo       bonjour   ;
+echo "--------;_________"
+echo --------;_________
+
+echo ""
+echo "METACARACTERES SANS QUOTES"
+echo -n "01 : " ; echo :
+echo -n "02 : " ; echo \$
+echo -n "03 : " ; echo \\
+echo -n "04 : " ; echo \\$
+echo -n "05 : " ; echo #
+echo -n "06 : " ; echo \\#
+echo -n "07 : " ; echo */*\ ;
+echo -n "08 : " ; echo *\*
+echo -n "10 : " ; echo \*
+echo -n "11 : " ; echo #
+echo -n "12 : " ; echo $HOME
+echo -n "13 : " ; echo \$HOME
+echo -n "14 : " ; echo $\HOME
+echo -n "15 : " ; echo $HOME_stuff
+echo -n "16 : " ; echo \|
+echo -n "18 : " ; echo \^
+echo -n "19 : " ; echo ^
+echo -n "20 : " ; echo _
+echo -n "21 : " ; echo \(
+echo -n "22 : " ; echo %
+echo -n "23 : " ; echo \%
+
+echo ""
+echo "METACARACTERES DOUBLES QUOTES"
+echo -n "01 : " ; echo ":"
+echo -n "02 : " ; echo "\$"
+echo -n "03 : " ; echo "\\"
+echo -n "04 : " ; echo "\\$"
+echo -n "05 : " ; echo "#"
+echo -n "06 : " ; echo "\\#"
+echo -n "07 : " ; echo "*/*\"" ;
+echo -n "08 : " ; echo "*\*"
+echo -n "09 : " ; echo "*"
+echo -n "10 : " ; echo "\*"
+echo -n "11 : " ; echo "#"
+echo -n "12 : " ; echo "$HOME"
+echo -n "13 : " ; echo "\$HOME"
+echo -n "14 : " ; echo "$\HOME"
+echo -n "15 : " ; echo "$HOME_stuff"
+echo -n "16 : " ; echo "\|"
+echo -n "17 : " ; echo "&"
+echo -n "18 : " ; echo "\^"
+echo -n "19 : " ; echo "^"
+echo -n "20 : " ; echo "_"
+echo -n "21 : " ; echo "\("
+echo -n "22 : " ; echo "%"
+echo -n "23 : " ; echo "\%"
+
+echo ""
+echo "METACARACTERES SIMPLES QUOTES"
+echo -n "01 : " ; echo ':'
+echo -n "02 : " ; echo '\$'
+echo -n "03 : " ; echo '\\'
+echo -n "04 : " ; echo '\\$'
+echo -n "05 : " ; echo '#'
+echo -n "06 : " ; echo '\\#'
+echo -n "07 : " ; echo '*/*\' ;
+echo -n "08 : " ; echo '*\*'
+echo -n "09 : " ; echo '*'
+echo -n "10 : " ; echo '\*'
+echo -n "11 : " ; echo '#'
+echo -n "12 : " ; echo '$HOME'
+echo -n "13 : " ; echo '\$HOME'
+echo -n "14 : " ; echo '$\HOME'
+echo -n "15 : " ; echo '$HOME_stuff'
+echo -n "16 : " ; echo '\|'
+echo -n "17 : " ; echo '&'
+echo -n "18 : " ; echo '\^'
+echo -n "19 : " ; echo '^'
+echo -n "20 : " ; echo '_'
+echo -n "21 : " ; echo '\('
+echo -n "22 : " ; echo '%'
+echo -n "23 : " ; echo '\%'
+
+echo ""
+echo "SIMPLE COTE COMME APOSTROPHE"
+echo -n "01 : " ; echo "I'm Here"
+echo -n "02 : " ; echo 'I'm Here' '
+echo -n "03 : " ; echo I'm Here   '
+
+echo ""
+echo "INHIBITION METACARACTERES"
+echo -n "01 : " ; echo \2 \> \3 \= faux
+echo -n "02 : " ; echo '\2 \> \3 \= faux'
+echo -n "03 : " ; echo "\2 \> \3 \= faux"
+echo -n "04 : " ; echo "\2 \> \3" '\= faux'
+echo -n "05 : " ; echo '\2' \> "\3 \= faux"
+echo -n "06 : " ; echo "\2 '\> \3 \=' faux"
+echo -n "07 : " ; echo '\2" \> \3" \= faux'
+
+echo ""
+echo "QUOTES MELANGEES"
+echo -n "01 : " ; echo bonjour les amis
+echo -n "02 : " ; echo "bonjour les amis"
+echo -n "03 : " ; echo 'bonjour les amis'
+echo -n "04 : " ; echo "'bonjour les amis'"
+echo -n "05 : " ; echo '"bonjour les amis"'
+echo -n "06 : " ; echo "bonjour" 'les' amis
+echo -n "07 : " ; echo 'bonjour "les" amis'
+echo -n "08 : " ; echo "bonjour 'les' amis"
+echo -n "09 : " ; echo 'bonjour 'les "amis"
+echo -n "10 : " ; echo \bonjour \les \amis
+echo -n "11 : " ; echo "\bonjour \les \amis"
+echo -n "12 : " ; echo '\bonjour \les \amis'
+
+echo ""
+echo "COMMENTAIRES"
+echo cest une phrase un peu longue pour tester les #commentaires
+echo cest une phrase un peu longue pour tester #les commentaires
+echo cest une phrase un peu longue pour #tester les commentaires
+echo cest une phrase un peu longue #pour tester les commentaires
+echo cest une phrase un peu #longue pour tester les commentaires
+echo cest une phrase un #peu longue pour tester les commentaires
+echo cest une phrase #un peu longue pour tester les commentaires
+echo cest une #phrase un peu longue pour tester les commentaires
+echo cest #une phrase un peu longue pour tester les commentaires
+echo #cest une phrase un peu longue pour tester les commentaires
+echo "cest une phrase un peu longue pour tester les #commentaires"
+echo "cest une phrase un peu longue pour tester #les commentaires"
+echo "cest une phrase un peu longue pour #tester les commentaires"
+echo "cest une phrase un peu longue #pour tester les commentaires"
+echo "cest une phrase un peu #longue pour tester les commentaires"
+echo "cest une phrase un #peu longue pour tester les commentaires"
+echo "cest une phrase #un peu longue pour tester les commentaires"
+echo "cest une #phrase un peu longue pour tester les commentaires"
+echo "cest #une phrase un peu longue pour tester les commentaires"
+echo "#cest une phrase un peu longue pour tester les commentaires"
+echo 'cest une phrase un peu longue pour tester les #commentaires'
+echo 'cest une phrase un peu longue pour tester #les commentaires'
+echo 'cest une phrase un peu longue pour #tester les commentaires'
+echo 'cest une phrase un peu longue #pour tester les commentaires'
+echo 'cest une phrase un peu #longue pour tester les commentaires'
+echo 'cest une phrase un #peu longue pour tester les commentaires'
+echo 'cest une phrase #un peu longue pour tester les commentaires'
+echo 'cest une #phrase un peu longue pour tester les commentaires'
+echo 'cest #une phrase un peu longue pour tester les commentaires'
+echo '#cest une phrase un peu longue pour tester les commentaires'
+
+echo ""
+echo "DOUBLE POINT VIRGULE = EXIT"
+echo ";;"
+echo ';;'
+echo ;;

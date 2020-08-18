@@ -6,7 +6,7 @@
 /*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 16:49:51 by schene            #+#    #+#             */
-/*   Updated: 2020/06/19 11:49:34 by schene           ###   ########.fr       */
+/*   Updated: 2020/06/19 12:07:55 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,9 @@ static void			ctr_c(int num)
 		ft_putstr_fd("minishell>> ", 2);
 }
 
-static void			ctr_quit(int num)
+static void			ctr_q(int num)
 {
 	(void)num;
-
-	printf("j'ai appuye\n");
-	quit_shell = 1;
-}
-
-void			ctr_q(int num)
-{
-	(void)num;
-
 	if (g_child_pid > 0)
 	{
 		g_ctrl_q = 1;
@@ -44,10 +35,14 @@ void			ctr_q(int num)
 	}
 }
 
-void				rm_save(char **line, char **save)
+void				rm_save(char **line, char **save, t_data *data)
 {
 	char	*tmp;
 
+	if (g_ctrl_c || g_ctrl_q)
+		data->status = 130 + g_ctrl_q;
+	g_ctrl_c = 0;
+	g_ctrl_q = 0;
 	if (g_ctrl_c && *save)
 	{
 		tmp = ft_substr(*line, ft_strlen(*save), ft_strlen(*line));
@@ -70,19 +65,19 @@ void				get_user_input(t_data *data, char **line)
 		save = ft_strdup(*line);
 	while (get_next_line(STDIN_FILENO, line) > 0)
 	{
-		rm_save(line, &save);
+		rm_save(line, &save, data);
 		save = NULL;
-		if (g_ctrl_c || g_ctrl_q)
-			data->status = 130 + g_ctrl_q;
-		g_ctrl_c = 0;
-		g_ctrl_q = 0;
 		if (parse_error(*line))
+		{
 			data->status = 2;
+			free(*line);
+			*line = NULL;
+		}
 		else
 			exec_shell(data, *line);
 		ft_putstr_fd("minishell>> ", 2);
 	}
-	rm_save(line, &save);
+	rm_save(line, &save, data);
 	if (*line && **line != '\0')
 		get_user_input(data, line);
 }
@@ -94,9 +89,8 @@ int					main(int ac, char **av, char **env)
 
 	(void)ac;
 	(void)av;
-	quit_shell = 0;
 	signal(SIGINT, &ctr_c);
-	signal(SIGQUIT, &ctr_quit);
+	signal(SIGQUIT, &ctr_q);
 	ft_putstr_fd("minishell>> ", 2);
 	data = init_data(env);
 	line = NULL;

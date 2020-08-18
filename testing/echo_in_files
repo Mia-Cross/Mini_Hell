@@ -1,0 +1,11 @@
+echo '\$PWD\WE()*&*TBYT^%&\# o93$ \#o3 3' "r-3 943j tg'erp ew3 rk[323w[q3&]]$" > tests/file1
+echo "\#$PWD\WE" "()*&*TBYT^%&\# o93$\+ o3 3r-'3 943j tgerp ew3@ r.k[323w['q3&]]" > tests/file2
+echo '#$\PWDOWE()\*&*TBYT^%&"\# \o93 \*o3 3r-3 943j tg"erp ew3\ rk%[323w\[q3&]]' > tests/file3
+echo "\#\$PWD_OWE*&*$TBYT^%&\#" > tests/file4 " \> o93 \$HOMEo3 3r-3 943j " "tgerp ew3 rk[323w[q3&]]\"" 
+echo "\#$PWD_\OWE()*\&*TBYT^\%&\# o93 o3 $HOME 3r-3 943j tgerp ew\>\>3 rk[323w$ [q3]]\$" > tests/file5
+echo $PWD \* "\# o93$ \#o3 3""r-3 943j tg'erp ew3 rk[323w[q3&]]$"> tests/file6
+echo "\#$PWD\WE" "()*&*TBYT\^%&\# o93$\+ o3 3r-'3 \943j tgerp ew3@ r.k["'\323w[q3&]]' > tests/file7
+echo \#$\PWD'OWE()\*&*T$LS"BYT^%&" \# \o93'>tests/file8 ' \\*o3 3r-3 943j tg"erp ew3\ $POUIC rk%\|[323w\[q3&]]"'
+echo '\#\$PWD_OWE('')*&\*$TBYT^%&\#' " \> o93 \$HOMEo3 " '3r$POUIC-3 943j' " tgerp e\w3 rk[323w[q3&]]\'" > tests/file9
+echo "\#$PWDON_\OWE()*\&*TBYT^\%&\# o9\3 o3 $HO\ME 3r-3 943j tgerp ew\>\>3 rk[323w$ [q3]]\$" > tests/file10
+

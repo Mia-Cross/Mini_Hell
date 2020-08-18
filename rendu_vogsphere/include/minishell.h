@@ -30,7 +30,6 @@
 # define WR_END 1
 
 pid_t g_child_pid;
-int		quit_shell;
 
 typedef struct	s_data
 {
@@ -86,6 +85,5 @@ char			*escape_str(char *str, t_data *data);
 t_data			*init_data(char **main_env);
 void			exec_shell(t_data *data, char *line);
 void			print_exec_error(char *cmd);
-void			ctr_q(int num);
 
 #endif
